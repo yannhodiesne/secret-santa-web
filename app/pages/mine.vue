@@ -1,7 +1,7 @@
 <template>
-  <UCard>
-    test
-  </UCard>
+  <div>
+    
+  </div>
 </template>
 
 <script lang="ts" setup>
