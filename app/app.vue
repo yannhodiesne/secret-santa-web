@@ -1,12 +1,16 @@
 <script setup lang="ts">
-const { loggedIn, user } = useUserSession();
 const colorMode = useColorMode();
-const selectedColorMode = colorMode.value;
-const toggleColorMode = ref(selectedColorMode === "dark");
+const toggleColorMode = ref(colorMode.value === "dark");
+
+watch(colorMode, () => {
+  toggleColorMode.value = colorMode.value === "dark";
+});
 
 watch(toggleColorMode, () => {
   colorMode.preference = toggleColorMode.value ? "dark" : "light";
 });
+
+const { loggedIn, user } = useUserSession();
 
 const firstLink = computed(() => loggedIn && user.value !== null ? {
   label: user.value.username,
@@ -36,8 +40,11 @@ const links = computed(() => [firstLink.value,
       <UCard class="mt-10">
         <div class="flex justify-between">
           <div class="flex gap-2 items-center">
-            <UIcon name="i-twemoji-santa-claus" />
+            <UAvatar
+              src="/self.jpeg"
+            />
             <h1>Secret Santa</h1>
+            <UIcon name="i-twemoji-santa-claus" />
             <UIcon name="twemoji-sparkles" />
           </div>
             <div class="flex gap-2 items-center">

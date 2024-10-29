@@ -3,34 +3,55 @@ definePageMeta({
   auth: false,
 });
 
-const { loggedIn, user, session, clear } = useUserSession();
-
+const { loggedIn, user, clear } = useUserSession();
 </script>
 
 <template>
   <div>
-    <UCard v-if="loggedIn">
-      <h1>{{ user?.username }}</h1>
-      <br />
-      <UButton icon="i-simple-line-icons-logout" @click="clear">Logout</UButton>
+    <UCard v-if="loggedIn && user">
+      <template #header>Mon profil</template>
+      <div class="w-full text-center text-lg size-10">{{ user.username }}</div>
+      <NuxtImg
+        preload
+        :src="`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`"
+        width="128"
+        height="128"
+        class="rounded-full mx-auto"
+      />
+      <template #footer>
+        <div class="grid grid-flow-col gap-4 justify-center">
+          <UButton icon="i-twemoji-santa-claus" color="white">Voir le Secret Santa</UButton>
+          <UButton
+            icon="i-simple-line-icons-logout"
+            @click="clear"
+            class="dark:text-white bg-[#5865f2] dark:bg-[#5865f2] hover:bg-[#3949f0] hover:dark:bg-[#3949f0]"
+          >
+            Se déconnecter
+          </UButton>
+        </div>
+      </template>
     </UCard>
     <UCard v-else>
-      <h1>Se connecter</h1>
+      <template #header>Se connecter</template>
       <NuxtImg
         preload
         src="https://cdn.discordapp.com/embed/avatars/0.png?size=128"
         width="128"
         height="128"
-        class="rounded-full"
+        class="rounded-full mx-auto"
       />
-      <UButton
-        to="/api/auth/discord"
-        icon="i-simple-line-icons-login"
-        external
-        class="dark:text-white bg-[#5865f2] dark:bg-[#5865f2] hover:bg-[#3949f0] hover:dark:bg-[#3949f0]"
-      >
-        Se connecter avec Discord
-      </UButton>
+      <template #footer>
+        <div class="grid justify-center">
+          <UButton
+            to="/api/auth/discord"
+            icon="i-simple-line-icons-login"
+            external
+            class="dark:text-white bg-[#5865f2] dark:bg-[#5865f2] hover:bg-[#3949f0] hover:dark:bg-[#3949f0]"
+          >
+            Se connecter avec Discord
+          </UButton>
+        </div>
+      </template>
     </UCard>
   </div>
 </template>
