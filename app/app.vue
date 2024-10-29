@@ -10,12 +10,27 @@ watch(toggleColorMode, () => {
   colorMode.preference = toggleColorMode.value ? "dark" : "light";
 });
 
+useHead({
+  htmlAttrs: { lang: "fr" },
+  link: [{ rel: 'icon', href: '/self.jpeg' }],
+  title: "Secret Santa 🎅 ✨"
+});
+
+useSeoMeta({
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  title: 'Secret Santa 🎅 ✨',
+  ogTitle: 'Secret Santa 🎅 ✨',
+  ogImage: '/self.jpeg',
+  twitterImage: '/self.jpeg',
+  twitterCard: 'summary'
+});
+
 const { loggedIn, user } = useUserSession();
 
 const firstLink = computed(() => loggedIn && user.value !== null ? {
   label: user.value.username,
   avatar: {
-    src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.png`
+    src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.png?size=32`
   },
   to: '/'
 } : {

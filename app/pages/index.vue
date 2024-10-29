@@ -13,14 +13,20 @@ const { loggedIn, user, clear } = useUserSession();
       <div class="w-full text-center text-lg size-10">{{ user.username }}</div>
       <NuxtImg
         preload
-        :src="`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`"
+        :src="`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`"
         width="128"
         height="128"
         class="rounded-full mx-auto"
       />
       <template #footer>
         <div class="grid grid-flow-col gap-4 justify-center">
-          <UButton icon="i-twemoji-santa-claus" color="white">Voir le Secret Santa</UButton>
+          <UButton
+            icon="i-twemoji-santa-claus"
+            color="white"
+            to="/mine"
+          >
+            Voir le Secret Santa
+          </UButton>
           <UButton
             icon="i-simple-line-icons-logout"
             @click="clear"
