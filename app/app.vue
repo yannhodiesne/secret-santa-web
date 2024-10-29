@@ -73,11 +73,14 @@ const links = computed(() => [firstLink.value,
       </UCard>
 
       <div class="mt-4 grid gap-4 grid-cols-[auto_1fr]">
-        <UCard class="h-fit" :ui="{
-          body: {
-            padding: 'p-2 sm:p-2'
-          }
-        }">
+        <UCard
+          class="h-fit"
+          :ui="{
+            body: {
+              padding: 'p-2 sm:p-2'
+            }
+          }"
+        >
           <UVerticalNavigation :links />
         </UCard>
         <NuxtPage />
@@ -90,5 +93,14 @@ const links = computed(() => [firstLink.value,
 <style lang="postcss">
 body {
   @apply font-sans text-gray-950 bg-gray-50 dark:bg-gray-950 dark:text-gray-50;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.15s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
 }
 </style>

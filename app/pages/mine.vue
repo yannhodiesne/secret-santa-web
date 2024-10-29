@@ -1,13 +1,8 @@
 <template>
-  <div>
-    
-  </div>
+  <UCard>
+    <template #header>
+      Mon Secret Santa
+    </template>
+    hehe
+  </UCard>
 </template>
-
-<script lang="ts" setup>
-
-</script>
-
-<style>
-
-</style>

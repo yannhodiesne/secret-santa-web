@@ -29,8 +29,8 @@ const { loggedIn, user, clear } = useUserSession();
           </UButton>
           <UButton
             icon="i-simple-line-icons-logout"
-            @click="clear"
             class="dark:text-white bg-[#5865f2] dark:bg-[#5865f2] hover:bg-[#3949f0] hover:dark:bg-[#3949f0]"
+            @click="clear"
           >
             Se déconnecter
           </UButton>
