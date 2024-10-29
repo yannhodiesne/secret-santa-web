@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
   const { user } = await requireUserSession(event);
 
-  const db = useDB();
+  const db = useDB(event);
 
   const year = new Date().getFullYear();
 

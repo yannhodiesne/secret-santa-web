@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({
-  auth: false,
+  auth: false
 });
 
 const { loggedIn, user, clear } = useUserSession();
@@ -9,8 +9,12 @@ const { loggedIn, user, clear } = useUserSession();
 <template>
   <div>
     <UCard v-if="loggedIn && user">
-      <template #header>Mon profil</template>
-      <div class="w-full text-center text-lg size-10">{{ user.username }}</div>
+      <template #header>
+        Mon profil
+      </template>
+      <div class="w-full text-center text-lg size-10">
+        {{ user.username }}
+      </div>
       <NuxtImg
         preload
         :src="`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`"
@@ -38,7 +42,9 @@ const { loggedIn, user, clear } = useUserSession();
       </template>
     </UCard>
     <UCard v-else>
-      <template #header>Se connecter</template>
+      <template #header>
+        Se connecter
+      </template>
       <NuxtImg
         preload
         src="https://cdn.discordapp.com/embed/avatars/0.png?size=128"

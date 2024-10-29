@@ -1,19 +1,19 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
-const toggleColorMode = ref(colorMode.value === "dark");
+const toggleColorMode = ref(colorMode.value === 'dark');
 
 watch(colorMode, () => {
-  toggleColorMode.value = colorMode.value === "dark";
+  toggleColorMode.value = colorMode.value === 'dark';
 });
 
 watch(toggleColorMode, () => {
-  colorMode.preference = toggleColorMode.value ? "dark" : "light";
+  colorMode.preference = toggleColorMode.value ? 'dark' : 'light';
 });
 
 useHead({
-  htmlAttrs: { lang: "fr" },
+  htmlAttrs: { lang: 'fr' },
   link: [{ rel: 'icon', href: '/self.jpeg' }],
-  title: "Secret Santa 🎅 ✨"
+  title: 'Secret Santa 🎅 ✨'
 });
 
 useSeoMeta({
@@ -27,30 +27,42 @@ useSeoMeta({
 
 const { loggedIn, user } = useUserSession();
 
-const firstLink = computed(() => loggedIn && user.value !== null ? {
-  label: user.value.username,
-  avatar: {
-    src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.png?size=32`
-  },
-  to: '/'
-} : {
-  label: 'Se connecter',
-  icon: 'i-simple-icons-discord',
-  to: '/',
-  badge: 1,
-});
-
-const links = computed(() => [firstLink.value,
+const links = computed(() => [
+  ...(loggedIn && !!user.value
+    ? [{
+        label: user.value.username,
+        avatar: {
+          src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.png?size=32`
+        },
+        to: '/'
+      }]
+    : []),
+  ...(!loggedIn || !user.value
+    ? [{
+        label: 'Se connecter',
+        icon: 'i-simple-icons-discord',
+        to: '/',
+        badge: 1
+      }]
+    : []),
   {
     label: 'Mon Secret Santa',
     icon: 'twemoji:wrapped-gift',
     to: '/mine'
-  }
+  },
+  ...(loggedIn && user.value?.role === 'admin'
+    ? [{
+        label: 'Admin',
+        icon: 'heroicons:adjustments-horizontal',
+        to: '/admin'
+      }]
+    : [])
 ]);
 </script>
 
 <template>
   <div>
+    <NuxtLoadingIndicator />
     <UContainer>
       <UCard class="mt-10">
         <div class="flex justify-between">
@@ -62,7 +74,7 @@ const links = computed(() => [firstLink.value,
             <UIcon name="i-twemoji-santa-claus" />
             <UIcon name="twemoji-sparkles" />
           </div>
-            <div class="flex gap-2 items-center">
+          <div class="flex gap-2 items-center">
             <ColorScheme>
               <UIcon name="i-twemoji-sun" />
               <UToggle v-model="toggleColorMode" />

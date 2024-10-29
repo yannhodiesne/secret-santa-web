@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
   const { user } = await requireUserSession(event);
 
-  const db = useDB();
+  const db = useDB(event);
 
   // Insert current user if missing
   let dbUser = await db.select({ id: tables.users.id }).from(tables.users).where(eq(tables.users.discordId, user.id)).get();
