@@ -52,7 +52,7 @@ const links = computed(() => [
   },
   ...(loggedIn && user.value?.role === 'admin'
     ? [{
-        label: 'Admin',
+        label: 'Administration',
         icon: 'heroicons:adjustments-horizontal',
         to: '/admin'
       }]
@@ -64,7 +64,7 @@ const links = computed(() => [
   <div>
     <NuxtLoadingIndicator />
     <ConfirmModal />
-    <UContainer>
+    <UContainer class="grid gap-2">
       <UCard class="mt-10">
         <div class="flex justify-between">
           <div class="flex gap-2 items-center">
@@ -77,27 +77,21 @@ const links = computed(() => [
           </div>
           <div class="flex gap-2 items-center">
             <ColorScheme>
-              <UIcon name="i-twemoji-sun" />
-              <UToggle v-model="toggleColorMode" />
-              <UIcon name="i-twemoji-new-moon" />
+              <UToggle
+                v-model="toggleColorMode"
+                off-icon="twemoji:sun"
+                on-icon="twemoji:first-quarter-moon"
+                size="xl"
+              />
             </ColorScheme>
           </div>
         </div>
       </UCard>
-
-      <div class="mt-4 grid gap-4 grid-cols-[auto_1fr]">
-        <UCard
-          class="h-fit"
-          :ui="{
-            body: {
-              padding: 'p-2 sm:p-2'
-            }
-          }"
-        >
-          <UVerticalNavigation :links />
-        </UCard>
-        <NuxtPage />
-      </div>
+      <UHorizontalNavigation
+        class="mx-auto mb-2"
+        :links
+      />
+      <NuxtPage />
     </UContainer>
     <UNotifications />
   </div>
@@ -105,7 +99,8 @@ const links = computed(() => [
 
 <style lang="postcss">
 body {
-  @apply font-sans text-gray-950 bg-gray-50 dark:bg-gray-950 dark:text-gray-50;
+  @apply text-gray-950 bg-gray-50 dark:bg-gray-950 dark:text-gray-50;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .page-enter-active,

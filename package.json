@@ -19,6 +19,7 @@
     "@libsql/client-wasm": "^0.14.0",
     "@nuxt/devtools": "latest",
     "@nuxt/eslint": "^0.6.1",
+    "@nuxt/fonts": "^0.10.2",
     "@nuxt/image": "^1.8.1",
     "@nuxt/ui": "^2.18.7",
     "@types/canvas-confetti": "^1.6.4",

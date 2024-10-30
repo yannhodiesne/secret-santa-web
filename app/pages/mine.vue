@@ -31,13 +31,15 @@ const leave = async () => {
 
 const confirmLeave = () => useConfirm().confirm(
   'Se désinscrire',
-  'Tu es sûr.e de vouloir te désinscrire du Secret Santa de cette année ?',
+  'Tu es sûr.e de vouloir te désinscrire ?',
   'Me désinscrire',
   leave
 );
 
+const hasOpened = ref(false);
 const isBlurred = ref(true);
 const reveal = (event: MouseEvent) => {
+  hasOpened.value = true;
   isBlurred.value = !isBlurred.value;
 
   if (isBlurred.value)
@@ -63,6 +65,7 @@ const reveal = (event: MouseEvent) => {
           class="flex flex-row items-center gap-3"
         >
           <UButton
+            class="mx-auto"
             icon="heroicons:x-circle-16-solid"
             color="red"
             @click="confirmLeave"
@@ -72,15 +75,17 @@ const reveal = (event: MouseEvent) => {
         </div>
         <div
           v-else
-          class="flex flex-row items-center gap-3"
+          class="flex flex-col items-center gap-3"
         >
+          <div class="italic text-md">
+            Les inscriptions sont encore ouvertes !
+          </div>
           <UButton
             icon="heroicons:check-circle-16-solid"
             @click="register"
           >
             S'inscrire
           </UButton>
-          <div>Les inscriptions sont encore ouvertes !</div>
         </div>
       </div>
 
@@ -92,9 +97,9 @@ const reveal = (event: MouseEvent) => {
       >
         <div
           v-if="!data?.generated"
-          class="text-center"
+          class="text-center italic"
         >
-          Reviens plus tard pour savoir de qui tu es le Secret Santa !
+          Les résultats ne sont pas encore là, reviens plus tard !
         </div>
         <div
           v-else
@@ -120,7 +125,7 @@ const reveal = (event: MouseEvent) => {
         <div
           v-else
           :class="{ 'blur-md': isBlurred }"
-          class="w-fit mx-auto cursor-pointer transition-all ease-in-out duration-700"
+          class="w-fit mx-auto cursor-pointer transition-all ease-in-out duration-700 bg-[#313338] rounded-xl py-4 px-12"
           @click="reveal"
         >
           <div class="w-full text-center text-lg size-10">
@@ -131,8 +136,14 @@ const reveal = (event: MouseEvent) => {
             :src="`https://cdn.discordapp.com/avatars/${data.recipient?.id}/${data.recipient?.avatar}.png?size=128`"
             width="128"
             height="128"
-            class="rounded-full mx-auto"
+            class="rounded-full"
           />
+          <div
+            class="w-full text-center text-xl mt-6 transition-all ease-in-out duration-1000"
+            :class="{ 'opacity-0': !hasOpened, 'opacity-100': hasOpened }"
+          >
+            ✨🎄🎅
+          </div>
         </div>
 
         <UDivider />

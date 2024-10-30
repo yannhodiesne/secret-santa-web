@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-auth-utils',
     '@nuxt/eslint',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxt/fonts'
   ],
   $production: {
     app: {
