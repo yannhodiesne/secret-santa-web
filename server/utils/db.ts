@@ -2,7 +2,7 @@ import { drizzle } from "drizzle-orm/libsql";
 import * as schema from "../database/schema";
 import { H3Event } from "h3";
 
-export { sql, eq, and, or } from "drizzle-orm";
+export { sql, eq, and, or, inArray } from "drizzle-orm";
 export { alias } from "drizzle-orm/sqlite-core";
 
 export const tables = schema;
