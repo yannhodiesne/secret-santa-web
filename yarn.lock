@@ -8619,31 +8619,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-app@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "nuxt-app@workspace:."
-  dependencies:
-    "@iconify-json/twemoji": "npm:^1.2.1"
-    "@libsql/client": "npm:^0.14.0"
-    "@libsql/client-wasm": "npm:^0.14.0"
-    "@nuxt/devtools": "npm:latest"
-    "@nuxt/eslint": "npm:^0.6.1"
-    "@nuxt/image": "npm:^1.8.1"
-    "@nuxt/ui": "npm:^2.18.7"
-    "@types/canvas-confetti": "npm:^1.6.4"
-    canvas-confetti: "npm:^1.9.3"
-    drizzle-kit: "npm:^0.27.0"
-    drizzle-orm: "npm:^0.36.0"
-    eslint: "npm:^9.13.0"
-    h3: "npm:^1.13.0"
-    h3-zod: "npm:^0.5.3"
-    nuxt: "npm:^3.13.2"
-    nuxt-auth-utils: "npm:^0.5.0"
-    vite: "npm:^5.4.10"
-    zod: "npm:^3.23.8"
-  languageName: unknown
-  linkType: soft
-
 "nuxt-auth-utils@npm:^0.5.0":
   version: 0.5.0
   resolution: "nuxt-auth-utils@npm:0.5.0"
@@ -10191,6 +10166,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"secret-santa-web@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "secret-santa-web@workspace:."
+  dependencies:
+    "@iconify-json/twemoji": "npm:^1.2.1"
+    "@libsql/client": "npm:^0.14.0"
+    "@libsql/client-wasm": "npm:^0.14.0"
+    "@nuxt/devtools": "npm:latest"
+    "@nuxt/eslint": "npm:^0.6.1"
+    "@nuxt/image": "npm:^1.8.1"
+    "@nuxt/ui": "npm:^2.18.7"
+    "@types/canvas-confetti": "npm:^1.6.4"
+    canvas-confetti: "npm:^1.9.3"
+    drizzle-kit: "npm:^0.27.0"
+    drizzle-orm: "npm:^0.36.0"
+    eslint: "npm:^9.13.0"
+    h3: "npm:^1.13.0"
+    h3-zod: "npm:^0.5.3"
+    nuxt: "npm:^3.13.2"
+    nuxt-auth-utils: "npm:^0.5.0"
+    typescript: "npm:^5.6.3"
+    vite: "npm:^5.4.10"
+    zod: "npm:^3.23.8"
+  languageName: unknown
+  linkType: soft
+
 "secure-json-parse@npm:^2.7.0":
   version: 2.7.0
   resolution: "secure-json-parse@npm:2.7.0"
@@ -11153,6 +11154,26 @@ __metadata:
     media-typer: "npm:0.3.0"
     mime-types: "npm:~2.1.24"
   checksum: 10c0/a23daeb538591b7efbd61ecf06b6feb2501b683ffdc9a19c74ef5baba362b4347e42f1b4ed81f5882a8c96a3bfff7f93ce3ffaf0cbbc879b532b04c97a55db9d
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^5.6.3":
+  version: 5.6.3
+  resolution: "typescript@npm:5.6.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/44f61d3fb15c35359bc60399cb8127c30bae554cd555b8e2b46d68fa79d680354b83320ad419ff1b81a0bdf324197b29affe6cc28988cd6a74d4ac60c94f9799
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
+  version: 5.6.3
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
   languageName: node
   linkType: hard
 
