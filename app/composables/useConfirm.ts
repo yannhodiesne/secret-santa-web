@@ -1,8 +1,8 @@
 interface ConfirmParams {
-  title: string
-  message: string
-  label: string
-  action: () => void
+  title: string;
+  message: string;
+  label: string;
+  action: () => void;
 }
 
 const confirming = ref<boolean>(false);
@@ -26,4 +26,4 @@ export default () => {
   };
 
   return { confirm, confirming, params };
-}
+};

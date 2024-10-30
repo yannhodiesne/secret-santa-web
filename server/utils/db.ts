@@ -1,9 +1,9 @@
-import { drizzle } from "drizzle-orm/libsql";
-import * as schema from "../database/schema";
-import { H3Event } from "h3";
+import { drizzle } from 'drizzle-orm/libsql';
+import type { H3Event } from 'h3';
+import * as schema from '../database/schema';
 
-export { sql, eq, and, or, inArray } from "drizzle-orm";
-export { alias } from "drizzle-orm/sqlite-core";
+export { sql, eq, and, or, inArray } from 'drizzle-orm';
+export { alias } from 'drizzle-orm/sqlite-core';
 
 export const tables = schema;
 

@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
   const conflicts = await db.select().from(tables.conflicts);
 
   const generate = () => {
-    console.log("Generating matches");
+    console.log('Generating matches');
 
     // Reset all recipients before generating
     participants.forEach(p => p.recipientId = null);
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
     let current = participants.find(p => p.recipientId === null);
 
     do {
-      if (!!current) {
+      if (current) {
         const userId = current.userId;
 
         const remainingParticipants = shuffle(
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
         );
 
         if (remainingParticipants.length === 0) {
-          console.error("Dead end ! Re-generating from scratch...");
+          console.error('Dead end ! Re-generating from scratch...');
           return generate();
         }
 
@@ -38,9 +38,9 @@ export default defineEventHandler(async (event) => {
       }
 
       current = participants.find(p => p.recipientId === null);
-    } while(!!current);
+    } while (current);
 
-    console.log("Matches generated");
+    console.log('Matches generated');
   };
 
   generate();

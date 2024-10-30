@@ -10,14 +10,14 @@ export default defineEventHandler(async (event) => {
     dbUser = await db.insert(tables.users).values({
       discordId: user.id,
       username: user.username,
-      avatar: user.avatar,
+      avatar: user.avatar
     }).returning().get();
   }
 
   // Insert participation for the current user if missing
   const year = new Date().getFullYear();
 
-  let dbParticipant = await db.select({ id: tables.participants.userId }).from(tables.participants).where(and(
+  const dbParticipant = await db.select({ id: tables.participants.userId }).from(tables.participants).where(and(
     eq(tables.participants.userId, dbUser.id),
     eq(tables.participants.year, year)
   )).get();

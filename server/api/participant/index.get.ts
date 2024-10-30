@@ -14,10 +14,10 @@ export default defineEventHandler(async (event) => {
     .get();
 
   const list = await db.select({
-      id: tables.users.discordId,
-      username: tables.users.username,
-      avatar: tables.users.avatar
-    })
+    id: tables.users.discordId,
+    username: tables.users.username,
+    avatar: tables.users.avatar
+  })
     .from(tables.participants)
     .innerJoin(tables.users, eq(tables.users.id, tables.participants.userId))
     .where(eq(tables.participants.year, year));
@@ -28,11 +28,13 @@ export default defineEventHandler(async (event) => {
   return {
     registered: !!result,
     generated: participants.length > 0 && participants.every(p => !!p.recipientId),
-    recipient: !!result?.recipient ? {
-      id: result.recipient?.discordId,
-      username: result.recipient?.username,
-      avatar: result.recipient?.avatar
-    } : undefined,
+    recipient: result?.recipient
+      ? {
+          id: result.recipient?.discordId,
+          username: result.recipient?.username,
+          avatar: result.recipient?.avatar
+        }
+      : undefined,
     list
   };
 });

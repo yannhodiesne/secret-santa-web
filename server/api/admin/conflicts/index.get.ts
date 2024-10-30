@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
       id: secondUser.discordId,
       username: secondUser.username,
       avatar: secondUser.avatar
-    }})
+    } })
     .from(tables.conflicts)
     .innerJoin(firstUser, eq(firstUser.id, tables.conflicts.firstId))
     .innerJoin(secondUser, eq(secondUser.id, tables.conflicts.secondId));
