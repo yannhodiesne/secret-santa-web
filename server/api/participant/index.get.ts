@@ -22,8 +22,12 @@ export default defineEventHandler(async (event) => {
     .innerJoin(tables.users, eq(tables.users.id, tables.participants.userId))
     .where(eq(tables.participants.year, year));
 
+  const participants = await db.select().from(tables.participants)
+    .where(eq(tables.participants.year, year));
+
   return {
     registered: !!result,
+    generated: participants.length > 0 && participants.every(p => !!p.recipientId),
     recipient: !!result?.recipient ? {
       id: result.recipient?.discordId,
       username: result.recipient?.username,

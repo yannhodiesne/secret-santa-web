@@ -428,7 +428,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@drizzle-team/brocli@npm:^0.10.1":
+"@drizzle-team/brocli@npm:^0.10.2":
   version: 0.10.2
   resolution: "@drizzle-team/brocli@npm:0.10.2"
   checksum: 10c0/3d8b99d680f0b14fea32b45c59b938b6665e0840cc67f04801b1aa3c6747da3c7d01c00e321645034fa100abdba7e0c20ce07cf46fc2ca769ee4cafd97562484
@@ -2986,6 +2986,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/canvas-confetti@npm:^1.6.4":
+  version: 1.6.4
+  resolution: "@types/canvas-confetti@npm:1.6.4"
+  checksum: 10c0/4a821690f0b9cdd81b0d02c0946c5b4e9e80f189e868fd8a159884d5eb9da0bdf0bfc380a61c971cc5d7b9ca2521625d46bcb5e4653988375118f57523ebe5a4
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:*, @types/estree@npm:1.0.6, @types/estree@npm:^1.0.0, @types/estree@npm:^1.0.6":
   version: 1.0.6
   resolution: "@types/estree@npm:1.0.6"
@@ -4213,6 +4220,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"canvas-confetti@npm:^1.9.3":
+  version: 1.9.3
+  resolution: "canvas-confetti@npm:1.9.3"
+  checksum: 10c0/94c6f16591660d5ed4a48afb8da65902826ce6b38edc7644d62521aa9bf9ef5b950aa4396e980e7fe0a38e5f41a991a6d984721412a54c9fba4de3682c1eead0
+  languageName: node
+  linkType: hard
+
 "case-anything@npm:^3.1.0":
   version: 3.1.0
   resolution: "case-anything@npm:3.1.0"
@@ -5070,27 +5084,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"drizzle-kit@npm:^0.26.2":
-  version: 0.26.2
-  resolution: "drizzle-kit@npm:0.26.2"
+"drizzle-kit@npm:^0.27.0":
+  version: 0.27.0
+  resolution: "drizzle-kit@npm:0.27.0"
   dependencies:
-    "@drizzle-team/brocli": "npm:^0.10.1"
+    "@drizzle-team/brocli": "npm:^0.10.2"
     "@esbuild-kit/esm-loader": "npm:^2.5.5"
     esbuild: "npm:^0.19.7"
     esbuild-register: "npm:^3.5.0"
   bin:
     drizzle-kit: bin.cjs
-  checksum: 10c0/5c94b92ebc2fa32df5e0192837cb4c677e9864bf2d2bcb1c417f52ddaa0bd61927c703e15b1f6a6c3243d4516375f999415847890ce51bbfba6eeea6df0d8fa3
+  checksum: 10c0/57810f19375e3e6ac14371f0a2bcd7d4f584ca55a8953a043202a8eb5d3af1eaa2fb2cf4a451ee36130f692d67fa49f85194c740e1b33276bceb26b7d947d7b4
   languageName: node
   linkType: hard
 
-"drizzle-orm@npm:^0.35.3":
-  version: 0.35.3
-  resolution: "drizzle-orm@npm:0.35.3"
+"drizzle-orm@npm:^0.36.0":
+  version: 0.36.0
+  resolution: "drizzle-orm@npm:0.36.0"
   peerDependencies:
     "@aws-sdk/client-rds-data": ">=3"
     "@cloudflare/workers-types": ">=3"
-    "@electric-sql/pglite": ">=0.1.1"
+    "@electric-sql/pglite": ">=0.2.0"
     "@libsql/client": ">=0.10.0"
     "@libsql/client-wasm": ">=0.10.0"
     "@neondatabase/serverless": ">=0.1"
@@ -5124,6 +5138,8 @@ __metadata:
     "@electric-sql/pglite":
       optional: true
     "@libsql/client":
+      optional: true
+    "@libsql/client-wasm":
       optional: true
     "@neondatabase/serverless":
       optional: true
@@ -5173,7 +5189,7 @@ __metadata:
       optional: true
     sqlite3:
       optional: true
-  checksum: 10c0/91b8beb6d5c34d8ee3c7d30116916d98f1f7e41988c609c9d766a3eec0fd9c7703a0e72e9e873ee887d16b274f571991a8e6e1afc51f496e5bce23398fc24c98
+  checksum: 10c0/a92cc827c41f2a0642546e004848f8dc220e9630f8e0913c35be3f83272d0d9d6384236d350115078adbd929764ca6194abd29eea50410bdec842f69389c047e
   languageName: node
   linkType: hard
 
@@ -8614,8 +8630,10 @@ __metadata:
     "@nuxt/eslint": "npm:^0.6.1"
     "@nuxt/image": "npm:^1.8.1"
     "@nuxt/ui": "npm:^2.18.7"
-    drizzle-kit: "npm:^0.26.2"
-    drizzle-orm: "npm:^0.35.3"
+    "@types/canvas-confetti": "npm:^1.6.4"
+    canvas-confetti: "npm:^1.9.3"
+    drizzle-kit: "npm:^0.27.0"
+    drizzle-orm: "npm:^0.36.0"
     eslint: "npm:^9.13.0"
     h3: "npm:^1.13.0"
     h3-zod: "npm:^0.5.3"

@@ -63,6 +63,7 @@ const links = computed(() => [
 <template>
   <div>
     <NuxtLoadingIndicator />
+    <ConfirmModal />
     <UContainer>
       <UCard class="mt-10">
         <div class="flex justify-between">
