@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "secret-santa-web",
   "private": true,
   "type": "module",
   "scripts": {
