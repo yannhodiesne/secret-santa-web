@@ -7,10 +7,12 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image'
   ],
-  devtools: { enabled: true },
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+  $production: {
+    app: {
+      pageTransition: { name: 'page', mode: 'out-in' }
+    }
   },
+  devtools: { enabled: true },
   runtimeConfig: {
     dbPath: 'file:db.sqlite',
     adminIds: '148744805269110785'
