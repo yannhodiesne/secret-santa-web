@@ -1,16 +1,16 @@
 export default defineEventHandler(async (event) => {
   await requireAdminSession(event);
 
-  const { firstId, secondId } = await useValidatedParams(event, {
-    firstId: z.string().min(1),
-    secondId: z.string().min(1)
+  const { firstUser, secondUser } = await useValidatedBody(event, {
+    firstUser: z.string().min(1),
+    secondUser: z.string().min(1)
   });
 
   const db = useDB(event);
 
   // Check if the ids exists
   const existingUsers = await db.selectDistinct({ id: tables.users.id }).from(tables.users)
-    .where(inArray(tables.users.discordId, [firstId, secondId]));
+    .where(inArray(tables.users.discordId, [firstUser, secondUser]));
 
   if (existingUsers.length !== 2) {
     throw createError({

@@ -6,6 +6,7 @@ const props = defineProps<{
   avatar?: string;
   size?: number;
   padding?: number;
+  textSmall?: boolean;
 }>();
 
 const normalizedSize = props.size ? 1 << 31 - Math.clz32(props.size) : 128;
@@ -19,7 +20,7 @@ const avatarUrl = (
 
 <template>
   <div
-    class="w-fit bg-[#5865f2] rounded-xl text-white flex items-center"
+    class="w-fit bg-[#5865f2] rounded-xl text-white flex items-center shadow-sm shadow-black"
     :class="`py-${padding ?? 4} px-${(padding ?? 4) * 2}`"
   >
     <NuxtImg
@@ -27,15 +28,16 @@ const avatarUrl = (
       :src="avatarUrl"
       :width="size ?? 128"
       :height="size ?? 128"
-      class="rounded-full"
+      class="rounded-full shadow-sm shadow-black bg-slate-50"
     />
     <div class="flex flex-col pl-4">
-      <div class="text-lg">
+      <div :class="textSmall ? 'text-md' : 'text-lg'">
         {{ nick ?? username }}
       </div>
       <div
         v-if="nick"
-        class="text-sm italic"
+        class="italic"
+        :class="textSmall ? 'text-sm' : 'text-sm'"
       >
         {{ username }}
       </div>
