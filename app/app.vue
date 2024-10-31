@@ -79,7 +79,7 @@ const links = [
     <NuxtLoadingIndicator />
     <ConfirmModal />
     <UContainer class="grid gap-2">
-      <UCard class="mt-10">
+      <div class="mt-10">
         <div class="flex justify-between">
           <div class="flex gap-2 items-center">
             <UAvatar
@@ -100,7 +100,8 @@ const links = [
             </ColorScheme>
           </div>
         </div>
-      </UCard>
+      </div>
+      <UDivider />
       <UHorizontalNavigation
         class="mx-auto mb-2"
         :links
