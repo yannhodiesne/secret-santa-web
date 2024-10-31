@@ -27,37 +27,51 @@ useSeoMeta({
 
 const { loggedIn, user } = useUserSession();
 
-const links = computed(() => [
-  ...(loggedIn && !!user.value
-    ? [{
-        label: user.value.username,
-        avatar: {
-          src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.png?size=32`
+const links = [
+  [
+    ...(loggedIn && !!user.value
+      ? [{
+          label: user.value.username,
+          avatar: {
+            src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.png?size=32`
+          },
+          to: '/'
+        }]
+      : []),
+    ...(!loggedIn || !user.value
+      ? [{
+          label: 'Se connecter',
+          icon: 'i-simple-icons-discord',
+          to: '/',
+          badge: 1
+        }]
+      : []),
+    {
+      label: 'Mon Secret Santa',
+      icon: 'twemoji:wrapped-gift',
+      to: '/mine'
+    }
+  ],
+  (loggedIn && user.value?.role === 'admin'
+    ? [
+        {
+          label: 'Participants',
+          icon: 'heroicons:user-circle-solid',
+          to: '/admin/participants'
         },
-        to: '/'
-      }]
-    : []),
-  ...(!loggedIn || !user.value
-    ? [{
-        label: 'Se connecter',
-        icon: 'i-simple-icons-discord',
-        to: '/',
-        badge: 1
-      }]
-    : []),
-  {
-    label: 'Mon Secret Santa',
-    icon: 'twemoji:wrapped-gift',
-    to: '/mine'
-  },
-  ...(loggedIn && user.value?.role === 'admin'
-    ? [{
-        label: 'Administration',
-        icon: 'heroicons:adjustments-horizontal',
-        to: '/admin'
-      }]
+        {
+          label: 'Contraintes',
+          icon: 'heroicons:document-minus-solid',
+          to: '/admin/constraints'
+        },
+        {
+          label: 'Génération',
+          icon: 'heroicons:arrow-path-rounded-square',
+          to: '/admin/generate'
+        }
+      ]
     : [])
-]);
+];
 </script>
 
 <template>

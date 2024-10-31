@@ -15,8 +15,9 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   runtimeConfig: {
-    dbPath: 'file:db.sqlite',
-    adminIds: '148744805269110785'
+    dbPath: '',
+    adminIds: '',
+    guildId: ''
   },
   future: { compatibilityVersion: 4 },
   compatibilityDate: '2024-10-28',

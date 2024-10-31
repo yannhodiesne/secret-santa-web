@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
     dbUser = await db.insert(tables.users).values({
       discordId: user.id,
       username: user.username,
+      nick: user.nick,
       avatar: user.avatar
     }).returning().get();
   }

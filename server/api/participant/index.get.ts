@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
   const list = await db.select({
     id: tables.users.discordId,
     username: tables.users.username,
+    nick: tables.users.nick,
     avatar: tables.users.avatar
   })
     .from(tables.participants)
@@ -32,6 +33,7 @@ export default defineEventHandler(async (event) => {
       ? {
           id: result.recipient?.discordId,
           username: result.recipient?.username,
+          nick: result.recipient?.nick,
           avatar: result.recipient?.avatar
         }
       : undefined,

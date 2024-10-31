@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const { data, refresh } = await useFetch('/api/participant');
 
-const { user } = useUserSession();
 const toast = useToast();
 
 const register = async () => {
@@ -10,7 +9,7 @@ const register = async () => {
 
   toast.add({
     id: 'self_register',
-    description: 'Tu es maintenant inscrit au Secret Santa de cette année 🎅🎉',
+    description: 'Tu es maintenant inscrit.e au Secret Santa de cette année 🎅🎉',
     color: 'green',
     avatar: { src: '/self.jpeg' },
     timeout: 10000
@@ -23,7 +22,7 @@ const leave = async () => {
 
   toast.add({
     id: 'self_leave',
-    description: 'Tu as bien été désinscrit du Secret Santa 😢',
+    description: 'Tu as bien été désinscrit.e du Secret Santa 😢',
     avatar: { src: '/self.jpeg' },
     timeout: 10000
   });
@@ -36,10 +35,8 @@ const confirmLeave = () => useConfirm().confirm(
   leave
 );
 
-const hasOpened = ref(false);
 const isBlurred = ref(true);
 const reveal = (event: MouseEvent) => {
-  hasOpened.value = true;
   isBlurred.value = !isBlurred.value;
 
   if (isBlurred.value)
@@ -56,13 +53,12 @@ const reveal = (event: MouseEvent) => {
 <template>
   <UCard>
     <template #header>
-      <UIcon name="i-twemoji-santa-claus" /> Secret Santa {{ new Date().getFullYear() }}
+      Secret Santa {{ new Date().getFullYear() }}
     </template>
     <div class="grid gap-6">
       <div v-if="!data?.generated">
-        <div
+        <UDivider
           v-if="data?.registered"
-          class="flex flex-row items-center gap-3"
         >
           <UButton
             class="mx-auto"
@@ -72,7 +68,7 @@ const reveal = (event: MouseEvent) => {
           >
             Se désinscrire
           </UButton>
-        </div>
+        </UDivider>
         <div
           v-else
           class="flex flex-col items-center gap-3"
@@ -89,7 +85,7 @@ const reveal = (event: MouseEvent) => {
         </div>
       </div>
 
-      <UDivider v-if="!data?.generated" />
+      <UDivider v-if="!data?.registered" />
 
       <div
         v-if="data?.registered"
@@ -107,44 +103,23 @@ const reveal = (event: MouseEvent) => {
         >
           Tu es le Secret Santa de ...
         </div>
-        <div
+        <DiscordProfile
           v-if="!data?.generated"
-          class="blur-md"
-        >
-          <div class="w-full text-center text-lg size-10">
-            Senior !!!
-          </div>
-          <NuxtImg
-            preload
-            src="https://cdn.discordapp.com/embed/avatars/0.png?size=128"
-            width="128"
-            height="128"
-            class="rounded-full mx-auto"
-          />
-        </div>
-        <div
-          v-else
+          class="mx-auto blur-md"
+          discord-id=""
+          username="Senior"
+          nick="Le best"
+        />
+        <DiscordProfile
+          v-else-if="data.recipient"
+          class="mx-auto cursor-pointer transition-all ease-in-out duration-700"
           :class="{ 'blur-md': isBlurred }"
-          class="w-fit mx-auto cursor-pointer transition-all ease-in-out duration-700 bg-[#313338] rounded-xl py-4 px-12"
+          :discord-id="data.recipient?.id"
+          :username="data.recipient?.username"
+          :nick="data.recipient.nick"
+          :avatar="data.recipient?.avatar ?? undefined"
           @click="reveal"
-        >
-          <div class="w-full text-center text-lg size-10">
-            {{ data.recipient?.username }}
-          </div>
-          <NuxtImg
-            preload
-            :src="`https://cdn.discordapp.com/avatars/${data.recipient?.id}/${data.recipient?.avatar}.png?size=128`"
-            width="128"
-            height="128"
-            class="rounded-full"
-          />
-          <div
-            class="w-full text-center text-xl mt-6 transition-all ease-in-out duration-1000"
-            :class="{ 'opacity-0': !hasOpened, 'opacity-100': hasOpened }"
-          >
-            ✨🎄🎅
-          </div>
-        </div>
+        />
 
         <UDivider />
       </div>
@@ -156,18 +131,17 @@ const reveal = (event: MouseEvent) => {
       >
         Personne (pour l'instant !)
       </div>
-      <div class="w-full flex flex-row flex-wrap">
-        <UBadge
+      <div class="w-full flex flex-row flex-wrap gap-4">
+        <DiscordProfile
           v-for="participant in data?.list"
           :key="participant.id"
-          :ui="{ rounded: 'rounded-full' }"
-          :color="user?.id === participant.id ? 'amber' : 'emerald'"
-        >
-          <UAvatar :src="`https://cdn.discordapp.com/avatars/${participant.id}/${participant.avatar}.png?size=32`" />
-          <div class="mx-2 text-sm">
-            {{ participant.username }}
-          </div>
-        </UBadge>
+          :discord-id="participant.id"
+          :username="participant.username"
+          :nick="participant.nick"
+          :avatar="participant.avatar ?? undefined"
+          :size="64"
+          :padding="2"
+        />
       </div>
     </div>
   </UCard>

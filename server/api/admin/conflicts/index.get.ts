@@ -10,11 +10,13 @@ export default defineEventHandler(async (event) => {
     firstUser: {
       id: firstUser.discordId,
       username: firstUser.username,
+      nick: firstUser.nick,
       avatar: firstUser.avatar
     },
     secondUser: {
       id: secondUser.discordId,
       username: secondUser.username,
+      nick: secondUser.nick,
       avatar: secondUser.avatar
     } })
     .from(tables.conflicts)

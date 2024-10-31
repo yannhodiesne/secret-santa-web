@@ -12,15 +12,12 @@ const { loggedIn, user, clear } = useUserSession();
       <template #header>
         Mon profil
       </template>
-      <div class="w-full text-center text-lg size-10">
-        {{ user.username }}
-      </div>
-      <NuxtImg
-        preload
-        :src="`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`"
-        width="128"
-        height="128"
-        class="rounded-full mx-auto"
+      <DiscordProfile
+        class="mx-auto"
+        :discord-id="user.id"
+        :username="user.username"
+        :nick="user.nick"
+        :avatar="user.avatar"
       />
       <template #footer>
         <div class="grid grid-flow-col gap-4 justify-center">

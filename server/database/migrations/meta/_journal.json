@@ -8,6 +8,13 @@
       "when": 1730218951828,
       "tag": "0000_polite_vector",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1730367626952,
+      "tag": "0001_clear_gambit",
+      "breakpoints": true
     }
   ]
 }

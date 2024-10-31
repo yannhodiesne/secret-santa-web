@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
     .where(and(
       inArray(tables.conflicts.firstId, existingUserIds),
       inArray(tables.conflicts.secondId, existingUserIds)
-    ));
+    )).get();
 
   if (!existingConflict) {
     await db.insert(tables.conflicts).values({

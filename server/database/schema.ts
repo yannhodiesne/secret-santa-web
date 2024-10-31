@@ -4,6 +4,7 @@ export const users = sqliteTable('users', {
   id: integer().primaryKey(),
   discordId: text().notNull().unique(),
   username: text().notNull(),
+  nick: text(),
   avatar: text()
 });
 
