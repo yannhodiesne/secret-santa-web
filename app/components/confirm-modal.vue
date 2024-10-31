@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 const { confirming, params } = useConfirm();
+
+const lines = computed(() => params.value.message.split('\n'));
 </script>
 
 <template>
@@ -11,8 +13,12 @@ const { confirming, params } = useConfirm();
       <div class="font-semibold mb-2">
         {{ params.title }}
       </div>
-      <div>
-        {{ params.message }}
+      <div
+        v-for="line in lines"
+        :key="line"
+        class="pt-2"
+      >
+        {{ line }}
       </div>
       <template #footer>
         <div class="flex justify-end space-x-2">
