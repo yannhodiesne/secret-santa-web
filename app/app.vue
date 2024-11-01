@@ -26,6 +26,7 @@ useSeoMeta({
 });
 
 const { loggedIn, user } = useUserSession();
+const { isMobile } = useDevice();
 
 const links = [
   [
@@ -52,7 +53,7 @@ const links = [
       to: '/mine'
     }
   ],
-  (loggedIn && user.value?.role === 'admin'
+  (loggedIn && user.value?.role === 'admin' && !isMobile
     ? [
         {
           label: 'Participants',

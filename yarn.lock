@@ -2325,6 +2325,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nuxtjs/device@npm:^3.2.4":
+  version: 3.2.4
+  resolution: "@nuxtjs/device@npm:3.2.4"
+  dependencies:
+    defu: "npm:^6.1.4"
+  checksum: 10c0/847cced2b4d65a9d2c77f6c933312b5eca0d02e355c0ce1b105a5a6c05125c1cc7ad52a73c0c066ae235dd85f2a3d28543f964e5cc48a44dd7994cc2250e54a2
+  languageName: node
+  linkType: hard
+
 "@nuxtjs/tailwindcss@npm:^6.12.1":
   version: 6.12.2
   resolution: "@nuxtjs/tailwindcss@npm:6.12.2"
@@ -10134,6 +10143,7 @@ __metadata:
     "@nuxt/fonts": "npm:^0.10.2"
     "@nuxt/image": "npm:^1.8.1"
     "@nuxt/ui": "npm:^2.18.7"
+    "@nuxtjs/device": "npm:^3.2.4"
     "@types/better-sqlite3": "npm:^7.6.11"
     "@types/canvas-confetti": "npm:^1.6.4"
     better-sqlite3: "npm:^11.5.0"

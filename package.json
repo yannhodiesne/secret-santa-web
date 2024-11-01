@@ -20,6 +20,7 @@
     "@nuxt/fonts": "^0.10.2",
     "@nuxt/image": "^1.8.1",
     "@nuxt/ui": "^2.18.7",
+    "@nuxtjs/device": "^3.2.4",
     "@types/better-sqlite3": "^7.6.11",
     "@types/canvas-confetti": "^1.6.4",
     "better-sqlite3": "^11.5.0",

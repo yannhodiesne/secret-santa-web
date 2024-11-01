@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
     '@nuxt/eslint',
     '@nuxt/image',
-    '@nuxt/fonts'
+    '@nuxt/fonts',
+    '@nuxtjs/device'
   ],
   $production: {
     app: {
