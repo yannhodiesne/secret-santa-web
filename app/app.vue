@@ -12,7 +12,7 @@ watch(toggleColorMode, () => {
 
 useHead({
   htmlAttrs: { lang: 'fr' },
-  link: [{ rel: 'icon', href: '/logo.png' }],
+  link: [{ rel: 'icon', href: '/logo.webp' }],
   title: 'Secret Santa 🎅 ✨'
 });
 
@@ -20,8 +20,8 @@ useSeoMeta({
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   title: 'Secret Santa 🎅 ✨',
   ogTitle: 'Secret Santa 🎅 ✨',
-  ogImage: '/logo.png',
-  twitterImage: '/logo.png',
+  ogImage: '/logo.webp',
+  twitterImage: '/logo.webp',
   twitterCard: 'summary'
 });
 
@@ -84,7 +84,7 @@ const links = [
         <div class="flex justify-between">
           <div class="flex gap-5 items-center">
             <UAvatar
-              src="/logo.png"
+              src="/logo.webp"
               size="3xl"
             />
             <h1 :class="$style.title">

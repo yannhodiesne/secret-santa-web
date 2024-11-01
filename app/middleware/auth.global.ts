@@ -11,7 +11,7 @@ export default defineNuxtRouteMiddleware((to) => {
       title: 'Attends un peu !',
       description: 'Connecte toi avec ton compte Discord pour participer au Secret Santa',
       color: 'red',
-      avatar: { src: '/logo.png' },
+      avatar: { src: '/logo.webp' },
       timeout: 10000
     });
 

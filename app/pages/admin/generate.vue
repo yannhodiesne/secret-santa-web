@@ -12,7 +12,7 @@ const generate = async () => {
       id: `generate`,
       description: `Le Secret Santa ${new Date().getFullYear()} a bien été généré !`,
       color: 'green',
-      avatar: { src: '/logo.png' },
+      avatar: { src: '/logo.webp' },
       timeout: 10000
     });
   }
@@ -22,7 +22,7 @@ const generate = async () => {
       title: 'Une erreur est survenue',
       description: `Impossible de générer le Secret Santa, veuillez retirer des contraintes de génération.`,
       color: 'red',
-      avatar: { src: '/logo.png' },
+      avatar: { src: '/logo.webp' },
       timeout: 10000
     });
   }
@@ -44,7 +44,7 @@ const copyLink = async () => {
     id: 'copy',
     description: 'Le lien a été copié dans ton presse-papier',
     color: 'green',
-    avatar: { src: '/logo.png' },
+    avatar: { src: '/logo.webp' },
     timeout: 10000
   });
 };
