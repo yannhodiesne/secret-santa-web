@@ -130,7 +130,7 @@ const columns = [
       <UTable
         :rows="data"
         :columns
-        :empty-state="{ icon: 'heroicons:document-solid', label: 'Aucun conflit' }"
+        :empty-state="{ icon: 'heroicons:document-solid', label: 'Aucune contrainte' }"
       >
         <template #first-data="{ row }: { row: Constraint }">
           <DiscordProfile
