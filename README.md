@@ -1,75 +1,35 @@
-# Nuxt UI Minimal Starter
+# Secret Santa Web
 
-Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui.nuxt.com) to learn more.
+A tiny web app useful letting you and your Discord friends participate in a Secret Santa without breaking the secret part of it!
 
-## Setup
+## Usage
+
+The recommended way is to use the provided Docker image: `ghcr.io/yannhodiesne/secret-santa-web:release`
+
+These environement variables are mandatory:
+ - `NUXT_SESSION_PASSWORD`: server secret for sessions handling, at least 32 random characters
+ - `NUXT_OAUTH_DISCORD_CLIENT_ID`: the OAuth2 client ID provided by Discord after creating an application on their [developers interface](https://discord.com/developers/applications)
+ - `NUXT_OAUTH_DISCORD_CLIENT_SECRET`: the OAuth2 client secret provided by Discord after creating an application on their [developers interface](https://discord.com/developers/applications)
+ - `NUXT_DB_PATH`: the path where the SQLite database will be stored *inside the container*
+ - `NUXT_ADMIN_IDS`: a comma-separated list of Discord user IDs to be granted the admin role when logged in
+ - `NUXT_GUILD_ID`: the Discord guild ID used to check if a Discord user can log in and participate
+
+> Do *not* forget to put your `NUXT_DB_PATH` inside a Docker volume to avoir losing your registered participants and generated Secret Santas !
+
+## Development
+
+### Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+yarn install && yarn postinstall
 ```
 
-## Development Server
+### Development Server
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
 yarn dev
-
-# bun
-bun run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

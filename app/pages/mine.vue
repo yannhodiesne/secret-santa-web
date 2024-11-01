@@ -133,9 +133,9 @@ const reveal = (event: MouseEvent) => {
       </div>
       <div class="w-full gap-4 grid grid-cols-1 md:flex md:flex-row md:flex-wrap">
         <DiscordProfile
-          class="mx-auto md:mx-0"
           v-for="participant in data?.list"
           :key="participant.id"
+          class="mx-auto md:mx-0"
           :discord-id="participant.id"
           :username="participant.username"
           :nick="participant.nick"
