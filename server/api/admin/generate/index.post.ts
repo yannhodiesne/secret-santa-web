@@ -28,6 +28,7 @@ export default defineEventHandler(async (event) => {
 
         const remainingParticipants = shuffle(
           participants.map(p => p.userId)
+            .filter(id => id !== current?.userId)
             .filter(id => !participants.map(p => p.recipientId).includes(id))
             .filter(id => !conflicts.some(c => [c.firstId, c.secondId].includes(id) && [c.firstId, c.secondId].includes(userId)))
         );
