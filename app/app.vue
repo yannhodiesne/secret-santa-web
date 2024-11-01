@@ -12,7 +12,7 @@ watch(toggleColorMode, () => {
 
 useHead({
   htmlAttrs: { lang: 'fr' },
-  link: [{ rel: 'icon', href: '/self.jpeg' }],
+  link: [{ rel: 'icon', href: '/logo.png' }],
   title: 'Secret Santa 🎅 ✨'
 });
 
@@ -20,8 +20,8 @@ useSeoMeta({
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   title: 'Secret Santa 🎅 ✨',
   ogTitle: 'Secret Santa 🎅 ✨',
-  ogImage: '/self.jpeg',
-  twitterImage: '/self.jpeg',
+  ogImage: '/logo.png',
+  twitterImage: '/logo.png',
   twitterCard: 'summary'
 });
 
@@ -82,13 +82,18 @@ const links = [
     <UContainer class="grid gap-2">
       <div class="mt-10">
         <div class="flex justify-between">
-          <div class="flex gap-2 items-center">
+          <div class="flex gap-5 items-center">
             <UAvatar
-              src="/self.jpeg"
+              src="/logo.png"
+              size="3xl"
             />
-            <h1>Secret Santa</h1>
-            <UIcon name="i-twemoji-santa-claus" />
-            <UIcon name="twemoji-sparkles" />
+            <h1 :class="$style.title">
+              Secret Santa
+            </h1>
+            <div class="text-3xl flex gap-2">
+              <UIcon name="i-twemoji-santa-claus" />
+              <UIcon name="twemoji-sparkles" />
+            </div>
           </div>
           <div class="flex gap-2 items-center">
             <ColorScheme>
@@ -126,5 +131,12 @@ body {
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
+}
+</style>
+
+<style lang="postcss" module>
+.title {
+  @apply text-4xl;
+  font-family: 'Henny Penny';
 }
 </style>

@@ -11,7 +11,7 @@ const register = async () => {
     id: 'self_register',
     description: 'Tu es maintenant inscrit.e au Secret Santa de cette année 🎅🎉',
     color: 'green',
-    avatar: { src: '/self.jpeg' },
+    avatar: { src: '/logo.png' },
     timeout: 10000
   });
 };
@@ -23,7 +23,7 @@ const leave = async () => {
   toast.add({
     id: 'self_leave',
     description: 'Tu as bien été désinscrit.e du Secret Santa 😢',
-    avatar: { src: '/self.jpeg' },
+    avatar: { src: '/logo.png' },
     timeout: 10000
   });
 };

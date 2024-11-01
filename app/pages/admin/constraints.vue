@@ -31,7 +31,7 @@ const add = async () => {
     id: `add_constraint_${firstSelected.value.id}_${secondSelected.value.id}`,
     description: `La contrainte pour ${firstSelected.value.label} et ${secondSelected.value.label} a bien été ajoutée`,
     color: 'green',
-    avatar: { src: '/self.jpeg' },
+    avatar: { src: '/logo.png' },
     timeout: 10000
   });
 };
@@ -51,7 +51,7 @@ const remove = async (firstId: string, secondId: string) => {
     id: `remove_constraint_${firstSelected.value.id}_${secondSelected.value.id}`,
     description: `La contrainte pour ${firstSelected.value.label} et ${secondSelected.value.label} a bien été supprimée`,
     color: 'red',
-    avatar: { src: '/self.jpeg' },
+    avatar: { src: '/logo.png' },
     timeout: 10000
   });
 };
