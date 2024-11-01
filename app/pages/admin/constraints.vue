@@ -139,7 +139,6 @@ const columns = [
             :nick="row.firstUser.nick"
             :avatar="row.firstUser.avatar ?? undefined"
             :size="32"
-            :padding="1"
             text-small
             class="ml-auto"
           />
@@ -151,7 +150,6 @@ const columns = [
             :nick="row.secondUser.nick"
             :avatar="row.secondUser.avatar ?? undefined"
             :size="32"
-            :padding="1"
             text-small
           />
         </template>

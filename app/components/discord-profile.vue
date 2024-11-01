@@ -5,7 +5,6 @@ const props = defineProps<{
   nick: string | null;
   avatar?: string;
   size?: number;
-  padding?: number;
   textSmall?: boolean;
 }>();
 
@@ -20,8 +19,7 @@ const avatarUrl = (
 
 <template>
   <div
-    class="w-fit bg-[#5865f2] rounded-xl text-white flex items-center shadow-sm shadow-black"
-    :class="`py-${padding ?? 4} px-${(padding ?? 4) * 2}`"
+    class="w-fit bg-[#5865f2] rounded-xl text-white flex items-center shadow-sm shadow-black py-4 px-8"
   >
     <NuxtImg
       preload

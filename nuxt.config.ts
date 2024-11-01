@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import path from 'path';
+import { cpSync } from 'fs';
 
 export default defineNuxtConfig({
   modules: [
@@ -21,6 +23,13 @@ export default defineNuxtConfig({
   },
   future: { compatibilityVersion: 4 },
   compatibilityDate: '2024-10-28',
+  hooks: {
+    'nitro:build:public-assets': (nitro) => {
+      // copy migrations to .output/server/database/migrations
+      const targetDir = path.join(nitro.options.output.serverDir, './database/migrations');
+      cpSync('./server/database/migrations', targetDir, { recursive: true });
+    }
+  },
   // Development config
   eslint: {
     config: {

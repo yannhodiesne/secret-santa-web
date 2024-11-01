@@ -11,9 +11,12 @@ export default defineEventHandler(async (event) => {
 
   const conflicts = await db.select().from(tables.conflicts);
 
-  const generate = () => {
-    console.log('Generating matches');
+  console.log('Generating matches');
 
+  const max_attempts = 10;
+
+  let i = 0;
+  for (; i < max_attempts; i++) {
     // Reset all recipients before generating
     participants.forEach(p => p.recipientId = null);
 
@@ -30,8 +33,8 @@ export default defineEventHandler(async (event) => {
         );
 
         if (remainingParticipants.length === 0) {
-          console.error('Dead end ! Re-generating from scratch...');
-          return generate();
+          // Dead-end, regenerate from scratch
+          break;
         }
 
         current.recipientId = remainingParticipants[Math.floor(Math.random() * remainingParticipants.length)];
@@ -40,10 +43,19 @@ export default defineEventHandler(async (event) => {
       current = participants.find(p => p.recipientId === null);
     } while (current);
 
+    if (participants.some(p => p.recipientId === null)) {
+      // We hit a dead end, continue onto the next iteration
+      continue;
+    }
+
     console.log('Matches generated');
+    break;
   };
 
-  generate();
+  if (i === max_attempts) {
+    console.error('Dead end ! Too many constraints');
+    throw createError({ statusCode: 409, statusMessage: 'Conflict' });
+  }
 
   await Promise.all(
     participants.map(p =>

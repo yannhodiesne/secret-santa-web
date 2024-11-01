@@ -48,7 +48,6 @@ const removeConfirm = (username: string, id: string) => useConfirm().confirm(
             :nick="participant.nick"
             :avatar="participant.avatar ?? undefined"
             :size="64"
-            :padding="2"
             class="rounded-r-none"
           />
           <UButton
@@ -78,7 +77,6 @@ const removeConfirm = (username: string, id: string) => useConfirm().confirm(
             :nick="participant.nick"
             :avatar="participant.avatar ?? undefined"
             :size="64"
-            :padding="2"
           />
         </div>
       </div>

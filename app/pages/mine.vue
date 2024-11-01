@@ -140,7 +140,6 @@ const reveal = (event: MouseEvent) => {
           :nick="participant.nick"
           :avatar="participant.avatar ?? undefined"
           :size="64"
-          :padding="2"
         />
       </div>
     </div>

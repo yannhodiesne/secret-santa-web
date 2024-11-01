@@ -4,16 +4,28 @@ const { data, refresh } = useFetch('/api/admin/generate');
 const toast = useToast();
 
 const generate = async () => {
-  await $fetch('/api/admin/generate', { method: 'post' });
-  await refresh();
+  try {
+    await $fetch('/api/admin/generate', { method: 'post' });
+    await refresh();
 
-  toast.add({
-    id: `generate`,
-    description: `Le Secret Santa ${new Date().getFullYear()} a bien été généré !`,
-    color: 'green',
-    avatar: { src: '/self.jpeg' },
-    timeout: 10000
-  });
+    toast.add({
+      id: `generate`,
+      description: `Le Secret Santa ${new Date().getFullYear()} a bien été généré !`,
+      color: 'green',
+      avatar: { src: '/self.jpeg' },
+      timeout: 10000
+    });
+  }
+  catch {
+    toast.add({
+      id: `generate_error`,
+      title: 'Une erreur est survenue',
+      description: `Impossible de générer le Secret Santa, veuillez retirer des contraintes de génération.`,
+      color: 'red',
+      avatar: { src: '/self.jpeg' },
+      timeout: 10000
+    });
+  }
 };
 
 const confirmGenerate = () => useConfirm().confirm(
