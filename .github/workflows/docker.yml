@@ -10,7 +10,16 @@ env:
 
 jobs:
   docker:
-    runs-on: self-hosted
+    strategy:
+      matrix:
+        platform: ['linux/amd64', 'linux/arm64']
+        include:
+          - platform: 'linux/amd64'
+            runs: ubuntu-latest
+          - platform: 'linux/arm64'
+            runs: self-hosted
+
+    runs-on: ${{ matrix.runs }}
 
     permissions:
       contents: read
@@ -44,7 +53,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: ${{ matrix.platform }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
