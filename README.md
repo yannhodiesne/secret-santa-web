@@ -16,6 +16,14 @@ These environement variables are mandatory:
 
 > Do *not* forget to put your `NUXT_DB_PATH` inside a Docker volume to avoir losing your registered participants and generated Secret Santas !
 
+### Discord OAuth2 redirect URL
+
+In order for the login process to work properly, you need to add the `/api/auth/discord` route to the authorized redirects in the OAuth2 section of their [developers interface](https://discord.com/developers/applications).
+
+Example:
+ - `http://localhost:3000/api/auth/discord` for development
+ - `http://secretsanta.net/api/auth/discord` for production
+
 ## Development
 
 ### Setup
