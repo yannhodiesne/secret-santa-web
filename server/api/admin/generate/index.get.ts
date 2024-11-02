@@ -11,8 +11,8 @@ export default defineEventHandler(async (event) => {
 
   const partialGeneration = participants.some(p => !!p.recipientId) && participants.some(p => !p.recipientId);
 
-  const recipientIds = participants.map(p => p.recipientId);
-  const doubleRecipient = recipientIds.filter((p, i) => recipientIds.indexOf(p) !== i);
+  const recipientIds = participants.map(p => p.recipientId).filter(x => x !== null);
+  const doubleRecipient = recipientIds.some((p, i) => recipientIds.indexOf(p) !== i);
 
   return {
     generated: participants.length > 0 && participants.every(p => !!p.recipientId),

@@ -33,7 +33,7 @@ test('generation succeeds with 0 constraints', () => {
   // Check for all recipients to be filled
   expect(recipientIds).not.toContain(null);
   // Ensure no duplicate recipients
-  expect(recipientIds.filter((p, i) => recipientIds.indexOf(p) !== i));
+  expect(!recipientIds.some((p, i) => recipientIds.indexOf(p) !== i));
 });
 
 test('generation succeeds with a simple constraint', () => {
@@ -73,7 +73,7 @@ test('generation succeeds with a simple constraint', () => {
   // Check for all recipients to be filled
   expect(recipientIds).not.toContain(null);
   // Ensure no duplicate recipients
-  expect(recipientIds.filter((p, i) => recipientIds.indexOf(p) !== i));
+  expect(!recipientIds.some((p, i) => recipientIds.indexOf(p) !== i));
 });
 
 test('generation fails instead of breaking constraints', () => {
