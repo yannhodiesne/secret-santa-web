@@ -39,7 +39,8 @@ export default defineOAuthDiscordEventHandler({
       return sendRedirect(event, '/');
     }
     catch {
-      throw createError({ status: 401, statusMessage: 'Unauthorized', statusText: 'Vous n\'avez pas l\'autorisation de vous connecter à cette application' });
+      // Redirect without creating a user session
+      return sendRedirect(event, '/');
     }
   },
   onError(event, error) {

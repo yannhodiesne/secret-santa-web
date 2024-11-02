@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/fonts',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    '@nuxt/test-utils/module'
   ],
   $production: {
     app: {
