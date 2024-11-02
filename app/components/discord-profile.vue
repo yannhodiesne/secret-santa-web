@@ -8,7 +8,7 @@ const props = defineProps<{
   textSmall?: boolean;
 }>();
 
-const normalizedSize = props.size ? 1 << 31 - Math.clz32(props.size) : 128;
+const normalizedSize = props.size ? 1 << 31 - Math.clz32(props.size * 2) : 128;
 
 const avatarUrl = (
   props.discordId && props.avatar
