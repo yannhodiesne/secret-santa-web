@@ -87,16 +87,24 @@ const links = [
               src="/logo.webp"
               size="3xl"
             />
-            <h1 :class="$style.title">
-              Secret Santa
-            </h1>
-            <div class="text-3xl flex gap-2">
-              <UIcon name="i-twemoji-santa-claus" />
-              <UIcon name="twemoji-sparkles" />
+            <div class="flex flex-row gap-3 mr-4 items-center">
+              <h1 :class="$style.title">
+                Secret Santa
+              </h1>
+              <div class="text-3xl flex gap-2">
+                <UIcon name="i-twemoji-santa-claus" />
+                <UIcon name="twemoji-sparkles" />
+              </div>
             </div>
           </div>
           <div class="flex gap-2 items-center">
             <ColorScheme>
+              <template #placeholder>
+                <UToggle
+                  loading
+                  size="xl"
+                />
+              </template>
               <UToggle
                 v-model="toggleColorMode"
                 off-icon="twemoji:sun"
