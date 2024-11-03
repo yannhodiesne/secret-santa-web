@@ -12,9 +12,11 @@ These environement variables are mandatory:
  - `NUXT_OAUTH_DISCORD_CLIENT_SECRET`: the OAuth2 client secret provided by Discord after creating an application on their [developers interface](https://discord.com/developers/applications)
  - `NUXT_DB_PATH`: the path where the SQLite database will be stored *inside the container*
  - `NUXT_ADMIN_IDS`: a comma-separated list of Discord user IDs to be granted the admin role when logged in
+   - the admin role lets those users manage the Secret Santa, such as removing other participants, editing the generation constraints, and generate the Secret Santa once everything is ready
  - `NUXT_GUILD_ID`: the Discord guild ID used to check if a Discord user can log in and participate
+   - only members of this guild will be able to log in to the website, others will only be redirected to the homepage
 
-> Do *not* forget to put your `NUXT_DB_PATH` inside a Docker volume to avoir losing your registered participants and generated Secret Santas !
+> Do *not* forget to put your `NUXT_DB_PATH` inside a Docker volume to avoid losing your registered participants and generated Secret Santas !
 
 ### Discord OAuth2 redirect URL
 
@@ -31,7 +33,7 @@ Example:
 Make sure to install the dependencies:
 
 ```bash
-yarn install && yarn postinstall
+yarn install
 ```
 
 ### Development Server
