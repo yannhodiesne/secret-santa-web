@@ -29,11 +29,11 @@ export default defineOAuthDiscordEventHandler({
               id: user.id,
               username: user.username,
               avatar: user.avatar,
-              nick: result.nick ?? null,
+              nick: result.nick ?? user.global_name ?? null,
               role: adminIds.split(',').includes(user.id) ? 'admin' : 'user'
             }
           }),
-        db.update(tables.users).set({ nick: result.nick ?? null }).where(eq(tables.users.discordId, user.id))
+        db.update(tables.users).set({ nick: result.nick ?? user.global_name ?? null }).where(eq(tables.users.discordId, user.id))
       ]);
 
       return sendRedirect(event, '/');
