@@ -15,7 +15,7 @@ export function useDB(event: H3Event) {
 
 export function migrateDB() {
   console.log('Migrating database...');
-  migrate(drizzle(process.env.NUXT_DB_PATH!, { schema }), { migrationsFolder: './.output/server/database/migrations' });
+  migrate(drizzle(process.env.NUXT_DB_PATH!, { schema }), { migrationsFolder: './server/database/migrations' });
   console.log('Database migrated');
 }
 
