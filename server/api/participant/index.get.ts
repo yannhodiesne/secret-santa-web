@@ -10,7 +10,10 @@ export default defineEventHandler(async (event) => {
   const result = await db.select().from(tables.participants)
     .innerJoin(tables.users, eq(tables.users.id, tables.participants.userId))
     .leftJoin(recipient, eq(recipient.id, tables.participants.recipientId))
-    .where(eq(tables.users.discordId, user.id))
+    .where(and(
+      eq(tables.participants.year, year),
+      eq(tables.users.discordId, user.id)
+    ))
     .get();
 
   const list = await db.select({

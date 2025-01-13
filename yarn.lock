@@ -1359,6 +1359,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iconify-json/simple-line-icons@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@iconify-json/simple-line-icons@npm:1.2.1"
+  dependencies:
+    "@iconify/types": "npm:*"
+  checksum: 10c0/eccedc93ef88586f3bd94765b87fca7dbf66cf6d7ac3df3c601b1198cca7376ece93404eb070dec956dfce1c199a137dd96baa0d19341f7539017c99f88d52ef
+  languageName: node
+  linkType: hard
+
 "@iconify-json/twemoji@npm:^1.2.2":
   version: 1.2.2
   resolution: "@iconify-json/twemoji@npm:1.2.2"
@@ -10185,6 +10194,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "secret-santa-web@workspace:."
   dependencies:
+    "@iconify-json/simple-line-icons": "npm:^1.2.1"
     "@iconify-json/twemoji": "npm:^1.2.2"
     "@nuxt/devtools": "npm:^1.7.0"
     "@nuxt/eslint": "npm:^0.7.5"
