@@ -9,11 +9,11 @@ WORKDIR /src
 
 FROM base AS build
 
-COPY --link package.json yarn.lock .yarnrc.yml ./
+COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 RUN yarn install --immutable
 
-COPY --link . .
+COPY . .
 
 RUN yarn run build
 
