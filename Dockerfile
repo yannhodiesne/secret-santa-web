@@ -2,7 +2,7 @@
 
 ARG NODE_VERSION=lts
 
-FROM node:${NODE_VERSION}-slim AS base
+FROM node:${NODE_VERSION}-alpine AS base
 ARG PORT=3000
 
 WORKDIR /src
