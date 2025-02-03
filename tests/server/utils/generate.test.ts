@@ -26,7 +26,9 @@ test('generation succeeds with 0 constraints', () => {
 
   const conflicts: Conflict[] = [];
 
-  expect(generate(participants, conflicts)).toBe(true);
+  const lastYear: Participant[] = [];
+
+  expect(generate(participants, conflicts, lastYear)).toBe(true);
 
   const recipientIds = participants.map(p => p.recipientId);
 
@@ -63,7 +65,9 @@ test('generation succeeds with a simple constraint', () => {
     secondId: 2
   }];
 
-  expect(generate(participants, conflicts)).toBe(true);
+  const lastYear: Participant[] = [];
+
+  expect(generate(participants, conflicts, lastYear)).toBe(true);
 
   expect(participants[0]?.recipientId).not.toEqual(2);
   expect(participants[1]?.recipientId).not.toEqual(1);
@@ -98,7 +102,59 @@ test('generation fails instead of breaking constraints', () => {
     secondId: 2
   }];
 
-  expect(generate(participants, conflicts)).toBe(false);
+  const lastYear: Participant[] = [];
+
+  expect(generate(participants, conflicts, lastYear)).toBe(false);
+});
+
+test('generation filters out previous year\'s results', () => {
+  const participants: Participant[] = [{
+    userId: 1,
+    year: 2024,
+    recipientId: null
+  },
+  {
+    userId: 2,
+    year: 2024,
+    recipientId: null
+  },
+  {
+    userId: 3,
+    year: 2024,
+    recipientId: null
+  },
+  {
+    userId: 4,
+    year: 2024,
+    recipientId: null
+  }];
+
+  const conflicts: Conflict[] = [{
+    firstId: 1,
+    secondId: 2
+  }];
+
+  const lastYear: Participant[] = [{
+    userId: 1,
+    year: 2023,
+    recipientId: 3
+  }, {
+    userId: 2,
+    year: 2023,
+    recipientId: 4
+  }, {
+    userId: 3,
+    year: 2023,
+    recipientId: 1
+  }, {
+    userId: 4,
+    year: 2023,
+    recipientId: 2
+  }];
+
+  expect(generate(participants, conflicts, lastYear)).toBe(true);
+  expect(participants[0]?.recipientId).toBe(4);
+  expect(participants[1]?.recipientId).toBe(3);
 });
 
 test('generation does not result in a self-santa', () => {
@@ -110,7 +166,9 @@ test('generation does not result in a self-santa', () => {
 
   const conflicts: Conflict[] = [];
 
-  expect(generate(participants, conflicts)).toBe(false);
+  const lastYear: Participant[] = [];
+
+  expect(generate(participants, conflicts, lastYear)).toBe(false);
 });
 
 test('generation does not result in a duplicate', () => {
@@ -144,5 +202,7 @@ test('generation does not result in a duplicate', () => {
 
   const conflicts: Conflict[] = [];
 
-  expect(generate(participants, conflicts)).toBe(false);
+  const lastYear: Participant[] = [];
+
+  expect(generate(participants, conflicts, lastYear)).toBe(false);
 });

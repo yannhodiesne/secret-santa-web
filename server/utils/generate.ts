@@ -6,7 +6,7 @@ const shuffle = <T>(array: T[]): T[] => {
   return array;
 };
 
-export const generate = (participants: Participant[], conflicts: Conflict[]): boolean => {
+export const generate = (participants: Participant[], conflicts: Conflict[], lastParticipants: Participant[]): boolean => {
   const max_attempts = 10;
 
   let i = 0;
@@ -25,6 +25,7 @@ export const generate = (participants: Participant[], conflicts: Conflict[]): bo
             .filter(id => id !== current?.userId)
             .filter(id => !participants.map(p => p.recipientId).includes(id))
             .filter(id => !conflicts.some(c => [c.firstId, c.secondId].includes(id) && [c.firstId, c.secondId].includes(userId)))
+            .filter(id => !lastParticipants.some(p => p.userId === userId && p.recipientId == id))
         );
 
         if (remainingParticipants.length === 0) {

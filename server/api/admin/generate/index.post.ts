@@ -11,9 +11,12 @@ export default defineEventHandler(async (event) => {
   const participants = await db.select().from(tables.participants)
     .where(eq(tables.participants.year, year));
 
+  const lastParticipants = await db.select().from(tables.participants)
+    .where(eq(tables.participants.year, year - 1));
+
   const conflicts = await db.select().from(tables.conflicts);
 
-  const success = generate(participants, conflicts);
+  const success = generate(participants, conflicts, lastParticipants);
 
   if (!success) {
     console.error('Dead end ! Too many constraints');
