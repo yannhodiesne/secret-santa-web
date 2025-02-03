@@ -1,6 +1,6 @@
 # Secret Santa Web
 
-A tiny web app useful letting you and your Discord friends participate in a Secret Santa without breaking the secret part of it!
+A tiny web app letting you and your Discord friends organize a Secret Santa without breaking the secret part of it!
 
 ## Usage
 
