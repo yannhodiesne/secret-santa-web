@@ -13,7 +13,7 @@ const secondSelected = ref();
 const selectables = computed(() => participants.value?.map(p => ({
   id: p.id,
   label: p.nick ?? p.username,
-  avatar: { src: `https://cdn.discordapp.com/avatars/${p.id}/${p.avatar}.png?size=32` }
+  avatar: { src: `https://cdn.discordapp.com/avatars/${p.id}/${p.avatar}.webp?size=32` }
 })));
 
 const add = async () => {

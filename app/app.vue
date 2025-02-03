@@ -34,7 +34,7 @@ const links = [
       ? [{
           label: user.value.username,
           avatar: {
-            src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.png?size=32`
+            src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.webp?size=32`
           },
           to: '/'
         }]

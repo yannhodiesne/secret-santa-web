@@ -10,10 +10,13 @@ const props = defineProps<{
 
 const normalizedSize = props.size ? 1 << 31 - Math.clz32(props.size * 2) : 128;
 
-const avatarUrl = (
-  props.discordId && props.avatar
-    ? `https://cdn.discordapp.com/avatars/${props.discordId}/${props.avatar}.png?size=${normalizedSize}`
-    : `https://cdn.discordapp.com/embed/avatars/0.png?size=${normalizedSize}`
+const defaultUrl = `https://cdn.discordapp.com/embed/avatars/0.png?size=${normalizedSize}`;
+
+const fetchError = ref<boolean>(false);
+
+const avatarUrl = computed(() => !fetchError.value && props.discordId && props.avatar
+  ? `https://cdn.discordapp.com/avatars/${props.discordId}/${props.avatar}.webp?size=${normalizedSize}`
+  : defaultUrl
 );
 </script>
 
@@ -27,6 +30,7 @@ const avatarUrl = (
       :width="size ?? 128"
       :height="size ?? 128"
       class="rounded-full shadow-sm shadow-black bg-slate-50"
+      @error="fetchError = true"
     />
     <div class="flex flex-col pl-4">
       <div :class="textSmall ? 'text-md' : 'text-lg'">
