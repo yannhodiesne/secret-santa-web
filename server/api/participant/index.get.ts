@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
 
   const year = new Date().getFullYear();
 
-  const result = await db.select().from(tables.participants)
+  const result = db.select().from(tables.participants)
     .innerJoin(tables.users, eq(tables.users.id, tables.participants.userId))
     .leftJoin(recipient, eq(recipient.id, tables.participants.recipientId))
     .where(and(

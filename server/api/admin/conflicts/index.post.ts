@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
 
   // Add to database if not exists
   const existingUserIds = existingUsers.map(u => u.id);
-  const existingConflict = await db.select().from(tables.conflicts)
+  const existingConflict = db.select().from(tables.conflicts)
     .where(and(
       inArray(tables.conflicts.firstId, existingUserIds),
       inArray(tables.conflicts.secondId, existingUserIds)

@@ -3,7 +3,7 @@ import { migrate } from 'drizzle-orm/better-sqlite3/migrator';
 import type { H3Event } from 'h3';
 import * as schema from '../database/schema';
 
-export { sql, eq, and, or, inArray } from 'drizzle-orm';
+export { sql, eq, ne, lt, lte, gt, gte, and, or, inArray, desc } from 'drizzle-orm';
 export { alias } from 'drizzle-orm/sqlite-core';
 
 export const tables = schema;
@@ -16,7 +16,8 @@ export function useDB(event: H3Event) {
 export function migrateDB() {
   console.log('Migrating database...');
   const migrationsFolder = import.meta.dev ? './server/database/migrations' : './.output/server/database/migrations';
-  migrate(drizzle(process.env.NUXT_DB_PATH!, { schema }), { migrationsFolder });
+  const { dbPath } = useRuntimeConfig();
+  migrate(drizzle(dbPath, { schema }), { migrationsFolder });
   console.log('Database migrated');
 }
 

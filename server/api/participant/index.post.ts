@@ -4,10 +4,10 @@ export default defineEventHandler(async (event) => {
   const db = useDB(event);
 
   // Insert current user if missing
-  let dbUser = await db.select({ id: tables.users.id }).from(tables.users).where(eq(tables.users.discordId, user.id)).get();
+  let dbUser = db.select({ id: tables.users.id }).from(tables.users).where(eq(tables.users.discordId, user.id)).get();
 
   if (!dbUser) {
-    dbUser = await db.insert(tables.users).values({
+    dbUser = db.insert(tables.users).values({
       discordId: user.id,
       username: user.username,
       nick: user.nick,
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
   // Insert participation for the current user if missing
   const year = new Date().getFullYear();
 
-  const dbParticipant = await db.select({ id: tables.participants.userId }).from(tables.participants).where(and(
+  const dbParticipant = db.select({ id: tables.participants.userId }).from(tables.participants).where(and(
     eq(tables.participants.userId, dbUser.id),
     eq(tables.participants.year, year)
   )).get();

@@ -11,14 +11,14 @@ export const users = sqliteTable('users', {
 export const conflicts = sqliteTable('conflicts', {
   firstId: integer().notNull().references(() => users.id),
   secondId: integer().notNull().references(() => users.id)
-}, table => ({
-  pk: primaryKey({ columns: [table.firstId, table.secondId] })
-}));
+}, table => [
+  primaryKey({ columns: [table.firstId, table.secondId] })
+]);
 
 export const participants = sqliteTable('participants', {
   userId: integer().notNull().references(() => users.id),
   year: integer().notNull(),
   recipientId: integer().references(() => users.id)
-}, table => ({
-  pk: primaryKey({ columns: [table.userId, table.year] })
-}));
+}, table => [
+  primaryKey({ columns: [table.userId, table.year] })
+]);
