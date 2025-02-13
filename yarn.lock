@@ -5057,9 +5057,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"drizzle-orm@npm:^0.39.2":
-  version: 0.39.2
-  resolution: "drizzle-orm@npm:0.39.2"
+"drizzle-orm@npm:^0.39.3":
+  version: 0.39.3
+  resolution: "drizzle-orm@npm:0.39.3"
   peerDependencies:
     "@aws-sdk/client-rds-data": ">=3"
     "@cloudflare/workers-types": ">=4"
@@ -5074,7 +5074,6 @@ __metadata:
     "@tidbcloud/serverless": "*"
     "@types/better-sqlite3": "*"
     "@types/pg": "*"
-    "@types/react": ">=18"
     "@types/sql.js": "*"
     "@vercel/postgres": ">=0.8.0"
     "@xata.io/client": "*"
@@ -5086,7 +5085,6 @@ __metadata:
     mysql2: ">=2"
     pg: ">=8"
     postgres: ">=3"
-    react: ">=18"
     sql.js: ">=1"
     sqlite3: ">=5"
   peerDependenciesMeta:
@@ -5116,8 +5114,6 @@ __metadata:
       optional: true
     "@types/pg":
       optional: true
-    "@types/react":
-      optional: true
     "@types/sql.js":
       optional: true
     "@vercel/postgres":
@@ -5142,13 +5138,11 @@ __metadata:
       optional: true
     prisma:
       optional: true
-    react:
-      optional: true
     sql.js:
       optional: true
     sqlite3:
       optional: true
-  checksum: 10c0/8f491ae1e7d0bb9fb437bf7c0b455153fc97ffbbd388cde6e3d53151f523da31fbc551a14a022510687755135ce61c402dbfa3895cc1d83b61aabf6adc0f3581
+  checksum: 10c0/0b2982e03079d7868d23ffca4a95635fc49274691cbb7e7275f9e8ab580ad617d9abbf67ea052ee7304fa97cc6b063951aa16efe6946f61ee47a4c26931b2f3d
   languageName: node
   linkType: hard
 
@@ -5832,9 +5826,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.20.0":
-  version: 9.20.0
-  resolution: "eslint@npm:9.20.0"
+"eslint@npm:^9.20.1":
+  version: 9.20.1
+  resolution: "eslint@npm:9.20.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.12.1"
@@ -5877,7 +5871,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10c0/5eb2d9b5ed85a0b022871d19719417d110afb07a4abfedd856ad03d9a821def5f6bc31d7c407ca27f56e5e66e39375300fd2b877017245eb99c44060d6c983bd
+  checksum: 10c0/056789dd5a00897730376f8c0a191e22840e97b7276916068ec096341cb2ec3a918c8bd474bf94ccd7b457ad9fbc16e5c521a993c7cc6ebcf241933e2fd378b0
   languageName: node
   linkType: hard
 
@@ -6690,13 +6684,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "happy-dom@npm:17.0.2"
+"happy-dom@npm:^17.1.0":
+  version: 17.1.0
+  resolution: "happy-dom@npm:17.1.0"
   dependencies:
     webidl-conversions: "npm:^7.0.0"
     whatwg-mimetype: "npm:^3.0.0"
-  checksum: 10c0/8a3ec3e391f4ff2f62533b85f848f887ef51a7a9788c1972ce5416a352d8dc7cf4e58fa94cdb44597830dc6c2b60e7eaaf285c643746f985e896223092a7dd14
+  checksum: 10c0/36e8798d152c15a113e47474d14fd5e9d064a8baaf8ba7e7c802c85ecadc216681e9decce911eb9156cbf26524f14a39c0c3f8a04b02d0edf698c27da0a7653f
   languageName: node
   linkType: hard
 
@@ -8580,9 +8574,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-auth-utils@npm:^0.5.14":
-  version: 0.5.14
-  resolution: "nuxt-auth-utils@npm:0.5.14"
+"nuxt-auth-utils@npm:^0.5.15":
+  version: 0.5.15
+  resolution: "nuxt-auth-utils@npm:0.5.15"
   dependencies:
     "@adonisjs/hash": "npm:^9.0.5"
     "@nuxt/kit": "npm:^3.15.4"
@@ -8610,7 +8604,7 @@ __metadata:
       optional: true
     "@simplewebauthn/server":
       optional: true
-  checksum: 10c0/0567920f57f39155d853c412f99786fdf65a7013748ae8314cddd8366d834c3e258a6b28ed30c28b1f5e8e93838c26665f8def30f146b49af55cf85f5ea2c8f6
+  checksum: 10c0/7759a0f35a83c9986502769697190e5d4f2c64b8a76c710093d8a8d6ba4932d391b832b0dcb3d56f2e996850fc07ed33a03e9af3dde4fef492fe9bfd725d21a2
   languageName: node
   linkType: hard
 
@@ -10288,18 +10282,18 @@ __metadata:
     better-sqlite3: "npm:^11.8.1"
     canvas-confetti: "npm:^1.9.3"
     drizzle-kit: "npm:^0.30.4"
-    drizzle-orm: "npm:^0.39.2"
-    eslint: "npm:^9.20.0"
+    drizzle-orm: "npm:^0.39.3"
+    eslint: "npm:^9.20.1"
     h3: "npm:^1.15.0"
     h3-zod: "npm:^0.5.3"
-    happy-dom: "npm:^17.0.2"
+    happy-dom: "npm:^17.1.0"
     nuxt: "npm:^3.15.4"
-    nuxt-auth-utils: "npm:^0.5.14"
+    nuxt-auth-utils: "npm:^0.5.15"
     playwright-core: "npm:^1.50.1"
     typescript: "npm:^5.7.3"
     vite: "npm:^6.1.0"
     vitest: "npm:^3.0.5"
-    zod: "npm:^3.24.1"
+    zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
 
@@ -12421,9 +12415,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.24.1":
-  version: 3.24.1
-  resolution: "zod@npm:3.24.1"
-  checksum: 10c0/0223d21dbaa15d8928fe0da3b54696391d8e3e1e2d0283a1a070b5980a1dbba945ce631c2d1eccc088fdbad0f2dfa40155590bf83732d3ac4fcca2cc9237591b
+"zod@npm:^3.24.2":
+  version: 3.24.2
+  resolution: "zod@npm:3.24.2"
+  checksum: 10c0/c638c7220150847f13ad90635b3e7d0321b36cce36f3fc6050ed960689594c949c326dfe2c6fa87c14b126ee5d370ccdebd6efb304f41ef5557a4aaca2824565
   languageName: node
   linkType: hard
