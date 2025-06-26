@@ -57,18 +57,18 @@ const reveal = (event: MouseEvent) => {
     </template>
     <div class="grid gap-6">
       <div v-if="!data?.generated">
-        <UDivider
+        <USeparator
           v-if="data?.registered"
         >
           <UButton
             class="mx-auto"
             icon="heroicons:x-circle-16-solid"
-            color="red"
+            color="error"
             @click="confirmLeave"
           >
             Se désinscrire
           </UButton>
-        </UDivider>
+        </USeparator>
         <div
           v-else
           class="flex flex-col items-center gap-3"
@@ -85,7 +85,7 @@ const reveal = (event: MouseEvent) => {
         </div>
       </div>
 
-      <UDivider v-if="!data?.registered" />
+      <USeparator v-if="!data?.registered" />
 
       <div
         v-if="data?.registered"
@@ -121,7 +121,7 @@ const reveal = (event: MouseEvent) => {
           @click="reveal"
         />
 
-        <UDivider />
+        <USeparator />
       </div>
 
       <h1>Les inscrits de cette année :</h1>

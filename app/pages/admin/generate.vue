@@ -13,7 +13,7 @@ const generate = async () => {
       description: `Le Secret Santa ${new Date().getFullYear()} a bien été généré !`,
       color: 'green',
       avatar: { src: '/logo.webp' },
-      timeout: 10000
+      duration: 10000
     });
   }
   catch {
@@ -23,7 +23,7 @@ const generate = async () => {
       description: `Impossible de générer le Secret Santa, veuillez retirer des contraintes de génération.`,
       color: 'red',
       avatar: { src: '/logo.webp' },
-      timeout: 10000
+      duration: 10000
     });
   }
 };
@@ -45,7 +45,7 @@ const copyLink = async () => {
     description: 'Le lien a été copié dans ton presse-papier',
     color: 'green',
     avatar: { src: '/logo.webp' },
-    timeout: 10000
+    duration: 10000
   });
 };
 </script>
@@ -59,21 +59,21 @@ const copyLink = async () => {
       État du Secret Santa :
       <UBadge
         v-if="data?.error"
-        color="red"
+        color="error"
         size="md"
       >
         Erreur interne
       </UBadge>
       <UBadge
         v-else-if="data?.generated"
-        color="green"
+        color="primary"
         size="md"
       >
         Généré et prêt à être partagé
       </UBadge>
       <UBadge
         v-else
-        color="amber"
+        color="warning"
         size="md"
       >
         En attente de génération
@@ -90,7 +90,7 @@ const copyLink = async () => {
         <UButton
           v-if="!data?.generated"
           icon="heroicons:cog"
-          color="green"
+          color="primary"
           @click="confirmGenerate"
         >
           Lancer la génération

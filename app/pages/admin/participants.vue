@@ -51,7 +51,7 @@ const removeConfirm = (username: string, id: string) => useConfirm().confirm(
             class="rounded-r-none"
           />
           <UButton
-            color="red"
+            color="error"
             class="rounded-l-none"
             @click="removeConfirm(participant.username, participant.id)"
           >
