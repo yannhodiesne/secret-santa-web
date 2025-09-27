@@ -5445,8 +5445,8 @@ __metadata:
   linkType: hard
 
 "drizzle-kit@npm:^0.31.3":
-  version: 0.31.3
-  resolution: "drizzle-kit@npm:0.31.3"
+  version: 0.31.5
+  resolution: "drizzle-kit@npm:0.31.5"
   dependencies:
     "@drizzle-team/brocli": "npm:^0.10.2"
     "@esbuild-kit/esm-loader": "npm:^2.5.5"
@@ -5454,7 +5454,7 @@ __metadata:
     esbuild-register: "npm:^3.5.0"
   bin:
     drizzle-kit: bin.cjs
-  checksum: 10c0/8951d3f16b3e2776b5951960b01f47ef9d1a56e8587e0986dfbc1d400ad648237e668be48a339119a862cfdeb55517b454b10d244a8f167915e8fbc633126a22
+  checksum: 10c0/7f172b1ba8cecf85b32e85621043d4ada867080e9ea2767c60b20ef2adb0292ff16832d8c8eae5d1bc9504d8165a58c449c9a25ab56c8ec30f1c3c8cb12ef6ad
   languageName: node
   linkType: hard
 
