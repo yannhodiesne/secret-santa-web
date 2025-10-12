@@ -2,8 +2,12 @@
 /.output
 /node_modules
 /.git
+/.vscode
 
 .gitignore
 .env
 db.sqlite
 README.md
+Dockerfile*
+docker-compose*
+.dockerignore

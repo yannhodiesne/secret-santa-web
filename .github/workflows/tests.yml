@@ -9,19 +9,14 @@ jobs:
 
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-          check-latest: true
+        uses: actions/checkout@v5
 
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node_modules-${{hashFiles('yarn.lock')}}
+          key: node_modules-${{hashFiles('bun.lock')}}
           restore-keys: node_modules-
 
-      - run: yarn install --immutable
-      - run: yarn test
+      - run: bun install --frozen-lockfile --ignore-scripts
+      - run: bun run test

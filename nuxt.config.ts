@@ -24,7 +24,11 @@ export default defineNuxtConfig({
     guildId: ''
   },
   future: { compatibilityVersion: 4 },
-  compatibilityDate: '2024-10-28',
+  experimental: { inlineRouteRules: true },
+  compatibilityDate: '2025-05-15',
+  nitro: {
+    preset: 'bun'
+  },
   hooks: {
     'nitro:build:public-assets': (nitro) => {
       // copy migrations to .output/server/database/migrations

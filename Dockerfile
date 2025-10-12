@@ -1,27 +1,18 @@
 # syntax = docker/dockerfile:1
-
-ARG NODE_VERSION=lts
-
-FROM node:${NODE_VERSION}-alpine AS base
-ARG PORT=3000
-
+FROM oven/bun:1 AS build
 WORKDIR /src
 
-FROM base AS build
-
-COPY package.json yarn.lock .yarnrc.yml ./
-COPY .yarn ./.yarn
-RUN yarn install --immutable
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile --ignore-scripts
 
 COPY . .
 
-RUN yarn run build
+RUN bun --bun run build
 
-FROM base
+FROM oven/bun:1 AS production
+WORKDIR /app
 
-ENV PORT=$PORT
-ENV NODE_ENV=production
+COPY --from=build /src/.output /app
 
-COPY --from=build /src/.output /src/.output
-
-CMD [ "node", ".output/server/index.mjs" ]
+EXPOSE 3000/tcp
+CMD [ "bun", "run", "/app/server/index.mjs" ]
