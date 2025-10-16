@@ -15,7 +15,7 @@ export function useDB(event: H3Event) {
 
 export function migrateDB() {
   console.log('Migrating database...');
-  const migrationsFolder = import.meta.dev ? './server/database/migrations' : './.output/server/database/migrations';
+  const migrationsFolder = './server/database/migrations';
   const { dbPath } = useRuntimeConfig();
   migrate(drizzle(dbPath, { schema }), { migrationsFolder });
   console.log('Database migrated');

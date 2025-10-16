@@ -30,9 +30,9 @@ const add = async () => {
   toast.add({
     id: `add_constraint_${firstSelected.value.id}_${secondSelected.value.id}`,
     description: `La contrainte pour ${firstSelected.value.label} et ${secondSelected.value.label} a bien été ajoutée`,
-    color: 'green',
+    color: 'success',
     avatar: { src: '/logo.webp' },
-    timeout: 10000
+    duration: 10000
   });
 };
 
@@ -50,9 +50,9 @@ const remove = async (firstId: string, secondId: string) => {
   toast.add({
     id: `remove_constraint_${firstSelected.value.id}_${secondSelected.value.id}`,
     description: `La contrainte pour ${firstSelected.value.label} et ${secondSelected.value.label} a bien été supprimée`,
-    color: 'red',
+    color: 'error',
     avatar: { src: '/logo.webp' },
-    timeout: 10000
+    duration: 10000
   });
 };
 
@@ -65,18 +65,22 @@ const removeConfirm = (constraint: Constraint) => useConfirm().confirm(
 
 const columns = [
   {
-    label: 'Participant 1',
-    key: 'first',
-    class: 'text-right'
+    header: 'Participant 1',
+    id: 'first',
+    meta: {
+      class: { td: 'text-right' }
+    }
   },
   {
-    label: 'Participant 2',
-    key: 'second'
+    header: 'Participant 2',
+    id: 'second'
   },
   {
-    label: '',
-    key: 'action',
-    class: 'w-0'
+    header: '',
+    id: 'action',
+    meta: {
+      class: { td: 'w-0' }
+    }
   }
 ];
 </script>
@@ -91,7 +95,7 @@ const columns = [
       <div class="grid grid-cols-[1fr_1fr_auto] gap-8">
         <USelectMenu
           v-model="firstSelected"
-          :options="selectables"
+          :items="selectables"
           searchable
           searchable-placeholder="Rechercher..."
         >
@@ -106,7 +110,7 @@ const columns = [
         </USelectMenu>
         <USelectMenu
           v-model="secondSelected"
-          :options="selectables"
+          :items="selectables"
           searchable
           searchable-placeholder="Rechercher..."
         >
@@ -126,37 +130,37 @@ const columns = [
           Ajouter
         </UButton>
       </div>
-      <UDivider />
+      <USeparator />
       <UTable
-        :rows="data"
+        :data="data"
         :columns
         :empty-state="{ icon: 'heroicons:document-solid', label: 'Aucune contrainte' }"
       >
-        <template #first-data="{ row }: { row: Constraint }">
+        <template #first-cell="{ row }">
           <DiscordProfile
-            :discord-id="row.firstUser.id"
-            :username="row.firstUser.username"
-            :nick="row.firstUser.nick"
-            :avatar="row.firstUser.avatar ?? undefined"
+            :discord-id="row.original.firstUser.id"
+            :username="row.original.firstUser.username"
+            :nick="row.original.firstUser.nick"
+            :avatar="row.original.firstUser.avatar ?? undefined"
             :size="32"
             text-small
             class="ml-auto"
           />
         </template>
-        <template #second-data="{ row }: { row: Constraint }">
+        <template #second-cell="{ row }">
           <DiscordProfile
-            :discord-id="row.secondUser.id"
-            :username="row.secondUser.username"
-            :nick="row.secondUser.nick"
-            :avatar="row.secondUser.avatar ?? undefined"
+            :discord-id="row.original.secondUser.id"
+            :username="row.original.secondUser.username"
+            :nick="row.original.secondUser.nick"
+            :avatar="row.original.secondUser.avatar ?? undefined"
             :size="32"
             text-small
           />
         </template>
-        <template #action-data="{ row }: { row: Constraint }">
+        <template #action-cell="{ row }">
           <UButton
-            color="red"
-            @click="removeConfirm(row)"
+            color="error"
+            @click="removeConfirm(row.original)"
           >
             <UIcon
               name="heroicons:trash-solid"

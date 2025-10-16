@@ -23,7 +23,7 @@ const { loggedIn, user, clear } = useUserSession();
         <div class="grid grid-flow-col gap-4 justify-center">
           <UButton
             icon="i-twemoji-santa-claus"
-            color="white"
+            color="neutral"
             to="/mine"
           >
             Voir le Secret Santa

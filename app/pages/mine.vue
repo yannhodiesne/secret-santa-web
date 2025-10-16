@@ -10,9 +10,9 @@ const register = async () => {
   toast.add({
     id: 'self_register',
     description: 'Tu es maintenant inscrit.e au Secret Santa de cette année 🎅🎉',
-    color: 'green',
+    color: 'success',
     avatar: { src: '/logo.webp' },
-    timeout: 10000
+    duration: 10000
   });
 };
 
@@ -24,7 +24,7 @@ const leave = async () => {
     id: 'self_leave',
     description: 'Tu as bien été désinscrit.e du Secret Santa 😢',
     avatar: { src: '/logo.webp' },
-    timeout: 10000
+    duration: 10000
   });
 };
 
@@ -57,18 +57,18 @@ const reveal = (event: MouseEvent) => {
     </template>
     <div class="grid gap-6">
       <div v-if="!data?.generated">
-        <UDivider
+        <USeparator
           v-if="data?.registered"
         >
           <UButton
             class="mx-auto"
             icon="heroicons:x-circle-16-solid"
-            color="red"
+            color="error"
             @click="confirmLeave"
           >
             Se désinscrire
           </UButton>
-        </UDivider>
+        </USeparator>
         <div
           v-else
           class="flex flex-col items-center gap-3"
@@ -85,7 +85,7 @@ const reveal = (event: MouseEvent) => {
         </div>
       </div>
 
-      <UDivider v-if="!data?.registered" />
+      <USeparator v-if="!data?.registered" />
 
       <div
         v-if="data?.registered"
@@ -121,15 +121,15 @@ const reveal = (event: MouseEvent) => {
           @click="reveal"
         />
 
-        <UDivider />
+        <USeparator />
       </div>
 
       <h1>Les inscrits de cette année :</h1>
       <div
         v-if="data?.list.length === 0"
-        class="italic"
+        class="italic flex flex-col items-center"
       >
-        Personne (pour l'instant !)
+        Personne, pour l'instant !
       </div>
       <div class="w-full gap-4 grid grid-cols-1 md:flex md:flex-row md:flex-wrap">
         <DiscordProfile

@@ -76,7 +76,7 @@ const links = [
 </script>
 
 <template>
-  <div>
+  <UApp>
     <NuxtLoadingIndicator />
     <ConfirmModal />
     <UContainer class="grid gap-2">
@@ -100,35 +100,34 @@ const links = [
           <div class="flex gap-2 items-center">
             <ColorScheme>
               <template #placeholder>
-                <UToggle
+                <USwitch
                   loading
                   size="xl"
                 />
               </template>
-              <UToggle
+              <USwitch
                 v-model="toggleColorMode"
-                off-icon="twemoji:sun"
-                on-icon="twemoji:first-quarter-moon"
+                unchecked-icon="twemoji:sun"
+                checked-icon="twemoji:first-quarter-moon"
                 size="xl"
               />
             </ColorScheme>
           </div>
         </div>
       </div>
-      <UDivider />
-      <UHorizontalNavigation
+      <USeparator />
+      <UNavigationMenu
+        orientation="horizontal"
         class="mx-auto mb-2"
-        :links
+        :items="links"
       />
       <NuxtPage />
     </UContainer>
-    <UNotifications />
-  </div>
+  </UApp>
 </template>
 
-<style lang="postcss">
+<style>
 body {
-  @apply text-gray-950 bg-gray-50 dark:bg-gray-950 dark:text-gray-50;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -144,7 +143,7 @@ body {
 
 <style lang="postcss" module>
 .title {
-  @apply text-4xl;
+  font-size: var(--text-4xl);
   font-family: 'Henny Penny';
 }
 </style>

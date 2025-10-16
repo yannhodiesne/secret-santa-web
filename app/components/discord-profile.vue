@@ -10,12 +10,12 @@ const props = defineProps<{
 
 const normalizedSize = props.size ? 1 << 31 - Math.clz32(props.size * 2) : 128;
 
-const defaultUrl = `https://cdn.discordapp.com/embed/avatars/0.png?size=${normalizedSize}`;
+const defaultUrl = `https://cdn.discordapp.com/embed/avatars/0.png?size=${normalizedSize * 2}`;
 
 const fetchError = ref<boolean>(false);
 
 const avatarUrl = computed(() => !fetchError.value && props.discordId && props.avatar
-  ? `https://cdn.discordapp.com/avatars/${props.discordId}/${props.avatar}.webp?size=${normalizedSize}`
+  ? `https://cdn.discordapp.com/avatars/${props.discordId}/${props.avatar}.webp?size=${normalizedSize * 2}`
   : defaultUrl
 );
 </script>

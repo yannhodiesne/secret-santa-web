@@ -29,9 +29,9 @@ const removeConfirm = (username: string, id: string) => useConfirm().confirm(
       </h1>
       <div
         v-if="data?.length === 0"
-        class="italic"
+        class="italic flex flex-col items-center"
       >
-        Personne (pour l'instant !)
+        Personne, pour l'instant !
       </div>
       <div
         v-if="!generation?.generated"
@@ -51,7 +51,7 @@ const removeConfirm = (username: string, id: string) => useConfirm().confirm(
             class="rounded-r-none"
           />
           <UButton
-            color="red"
+            color="error"
             class="rounded-l-none"
             @click="removeConfirm(participant.username, participant.id)"
           >
