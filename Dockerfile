@@ -1,18 +1,23 @@
 # syntax = docker/dockerfile:1
-FROM oven/bun:1 AS build
+FROM node:lts-slim AS build
 WORKDIR /src
+ENV PNPM_HOME=/pnpm
+ENV PATH="${PNPM_HOME}:$PATH"
+RUN corepack enable
 
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile --ignore-scripts
+COPY --link package.json pnpm-*.yaml ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-COPY . .
+COPY --link . .
 
-RUN bun --bun run build
+RUN pnpm run build
 
-FROM oven/bun:1 AS production
+FROM node:lts-slim AS production
 WORKDIR /app
+ENV PORT=3000
+ENV NODE_ENV=production
 
 COPY --from=build /src/.output /app
 
-EXPOSE 3000/tcp
-CMD [ "bun", "run", "/app/server/index.mjs" ]
+EXPOSE 3000
+CMD [ "node", "/app/server/index.mjs" ]

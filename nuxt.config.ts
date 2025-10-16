@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   experimental: { inlineRouteRules: true },
   compatibilityDate: '2025-05-15',
   nitro: {
-    preset: 'bun'
+    preset: 'node_server'
   },
   hooks: {
     'nitro:build:public-assets': (nitro) => {

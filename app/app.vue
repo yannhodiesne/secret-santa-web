@@ -118,7 +118,7 @@ const links = [
       <USeparator />
       <UNavigationMenu
         orientation="horizontal"
-        class="mx-auto mb-2"
+        class="mx-full"
         :items="links"
       />
       <NuxtPage />
