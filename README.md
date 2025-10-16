@@ -33,7 +33,7 @@ Example:
 Make sure to install the dependencies:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### Development Server
@@ -41,5 +41,5 @@ yarn install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-yarn dev
+pnpm dev
 ```
