@@ -39,7 +39,7 @@ export default defineOAuthDiscordEventHandler({
         }).where(eq(tables.users.discordId, user.id))
       ]);
 
-      return sendRedirect(event, '/');
+      return sendRedirect(event, '/mine');
     }
     catch {
       // Redirect without creating a user session

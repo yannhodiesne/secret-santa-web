@@ -10,9 +10,9 @@ export default defineNuxtRouteMiddleware((to) => {
       id: 'must_login',
       title: 'Attends un peu !',
       description: 'Connecte toi avec ton compte Discord pour participer au Secret Santa',
-      color: 'red',
+      color: 'error',
       avatar: { src: '/logo.webp' },
-      timeout: 10000
+      duration: 10000
     });
 
     return navigateTo('/');
