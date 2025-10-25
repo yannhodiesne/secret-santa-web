@@ -16,7 +16,7 @@ importers:
         version: 1.2.3
       '@iconify-json/lucide':
         specifier: ^1.2.70
-        version: 1.2.70
+        version: 1.2.71
       '@iconify-json/simple-line-icons':
         specifier: ^1.2.1
         version: 1.2.1
@@ -708,8 +708,8 @@ packages:
   '@iconify-json/heroicons@1.2.3':
     resolution: {integrity: sha512-n+vmCEgTesRsOpp5AB5ILB6srsgsYK+bieoQBNlafvoEhjVXLq8nIGN4B0v/s4DUfa0dOrjwE/cKJgIKdJXOEg==}
 
-  '@iconify-json/lucide@1.2.70':
-    resolution: {integrity: sha512-56s9NdBKgshywVY1e4gOcxzAbU1J649e/jLHBJU1tyNqRs7mFLVEGwj2mmzHJ5YAZB5Tsngi4f/ocTBPlG06ZA==}
+  '@iconify-json/lucide@1.2.71':
+    resolution: {integrity: sha512-KL+3JHW+wN8QqT3CN+7e1SzTe+gIunFBuUICtVmdCmdVRx+MdGNkX4xJhXoYHfhYO2azrEhoGPG+It9k30aZkw==}
 
   '@iconify-json/simple-line-icons@1.2.1':
     resolution: {integrity: sha512-MxgGNPpjiruoKqoefyluJtyq3ebwxqIfngJDFx6wIe/YNOIIyT7LTGKS7kh4Az3PDfefh5Z9OkxGTLExx8WfKg==}
@@ -4053,6 +4053,7 @@ packages:
 
   motion-v@1.7.2:
     resolution: {integrity: sha512-h2qfae2LUMLw5KIjQF5cT+r0MrLwP4AFDMOisyp25x/oDI3PHgjLHJrhHx77q8iBNegk4llt5p6deC12EJ5fvQ==}
+    deprecated: deprecate
     peerDependencies:
       '@vueuse/core': '>=10.0.0'
       vue: '>=3.0.0'
@@ -6134,7 +6135,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.2.70':
+  '@iconify-json/lucide@1.2.71':
     dependencies:
       '@iconify/types': 2.0.0
 
