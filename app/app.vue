@@ -10,10 +10,16 @@ watch(toggleColorMode, () => {
   colorMode.preference = toggleColorMode.value ? 'dark' : 'light';
 });
 
+const analytics
+  = process.env.NODE_ENV === 'production'
+    ? { 'defer': true, 'src': 'https://analytics.wetcrapaud.fr/script.js', 'data-website-id': '0c04dd54-a0fe-4515-9dd0-d064320ec790' }
+    : null;
+
 useHead({
   htmlAttrs: { lang: 'fr' },
   link: [{ rel: 'icon', href: '/logo.webp' }],
-  title: 'Secret Santa 🎅 ✨'
+  title: 'Secret Santa 🎅 ✨',
+  script: [analytics].filter(Boolean)
 });
 
 useSeoMeta({
