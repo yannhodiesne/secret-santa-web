@@ -49,7 +49,7 @@
   },
   "pnpm": {
     "overrides": {
-      "sharp": "0.33.4"
+      "sharp": "0.34.5"
     }
   }
 }
