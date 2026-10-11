@@ -14,7 +14,7 @@ const secondSelected = ref();
 const selectables = computed(() => participants.value?.map(p => ({
   id: p.id,
   label: p.nick ?? p.username,
-  avatar: { src: `${fluxerMediaUrl}/avatars/${p.id}?format=webp&size=32` }
+  avatar: { src: `${fluxerMediaUrl}/avatars/${p.id}/${p.avatar}.webp?size=32` }
 })));
 
 const add = async () => {
