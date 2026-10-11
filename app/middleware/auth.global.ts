@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware((to) => {
     toast.add({
       id: 'must_login',
       title: 'Attends un peu !',
-      description: 'Connecte toi avec ton compte Discord pour participer au Secret Santa',
+      description: 'Connecte toi avec ton compte Fluxer pour participer au Secret Santa',
       color: 'error',
       avatar: { src: '/logo.webp' },
       duration: 10000

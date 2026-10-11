@@ -2,7 +2,7 @@ import { sqliteTable, primaryKey, text, integer } from 'drizzle-orm/sqlite-core'
 
 export const users = sqliteTable('users', {
   id: integer().primaryKey(),
-  discordId: text().notNull().unique(),
+  fluxerId: text().notNull().unique(),
   username: text().notNull(),
   nick: text(),
   avatar: text()

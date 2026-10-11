@@ -12,12 +12,12 @@ export default defineEventHandler(async (event) => {
     .leftJoin(recipient, eq(recipient.id, tables.participants.recipientId))
     .where(and(
       eq(tables.participants.year, year),
-      eq(tables.users.discordId, user.id)
+      eq(tables.users.fluxerId, user.id)
     ))
     .get();
 
   const list = await db.select({
-    id: tables.users.discordId,
+    id: tables.users.fluxerId,
     username: tables.users.username,
     nick: tables.users.nick,
     avatar: tables.users.avatar
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
     generated: participants.length > 0 && participants.every(p => !!p.recipientId),
     recipient: result?.recipient
       ? {
-          id: result.recipient?.discordId,
+          id: result.recipient?.fluxerId,
           username: result.recipient?.username,
           nick: result.recipient?.nick,
           avatar: result.recipient?.avatar

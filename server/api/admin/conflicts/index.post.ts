@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
 
   // Check if the ids exists
   const existingUsers = await db.selectDistinct({ id: tables.users.id }).from(tables.users)
-    .where(inArray(tables.users.discordId, [firstUser, secondUser]));
+    .where(inArray(tables.users.fluxerId, [firstUser, secondUser]));
 
   if (existingUsers.length !== 2) {
     throw createError({

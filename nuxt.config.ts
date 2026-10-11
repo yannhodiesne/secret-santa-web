@@ -20,9 +20,17 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
+    public: {
+      fluxerMediaUrl: 'https://fluxerusercontent.com'
+    },
     dbPath: '',
     adminIds: '',
-    guildId: ''
+    guildId: '',
+    fluxerApiUrl: 'https://api.fluxer.app/v1',
+    fluxer: {
+      clientId: '',
+      clientSecret: ''
+    }
   },
   future: { compatibilityVersion: 4 },
   experimental: { inlineRouteRules: true },

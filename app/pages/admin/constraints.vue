@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { fluxerMediaUrl } = useRuntimeConfig().public;
 const { data: participants } = useFetch('/api/admin/participants');
 const { data, refresh } = useFetch('/api/admin/conflicts');
 
@@ -13,7 +14,7 @@ const secondSelected = ref();
 const selectables = computed(() => participants.value?.map(p => ({
   id: p.id,
   label: p.nick ?? p.username,
-  avatar: { src: `https://cdn.discordapp.com/avatars/${p.id}/${p.avatar}.webp?size=32` }
+  avatar: { src: `${fluxerMediaUrl}/avatars/${p.id}?format=webp&size=32` }
 })));
 
 const add = async () => {
@@ -137,22 +138,22 @@ const columns = [
         :empty-state="{ icon: 'heroicons:document-solid', label: 'Aucune contrainte' }"
       >
         <template #first-cell="{ row }">
-          <DiscordProfile
-            :discord-id="row.original.firstUser.id"
+          <FluxerProfile
+            :fluxer-id="row.original.firstUser.id"
             :username="row.original.firstUser.username"
+            :avatar="row.original.firstUser.avatar"
             :nick="row.original.firstUser.nick"
-            :avatar="row.original.firstUser.avatar ?? undefined"
             :size="32"
             text-small
             class="ml-auto"
           />
         </template>
         <template #second-cell="{ row }">
-          <DiscordProfile
-            :discord-id="row.original.secondUser.id"
+          <FluxerProfile
+            :fluxer-id="row.original.secondUser.id"
             :username="row.original.secondUser.username"
+            :avatar="row.original.secondUser.avatar"
             :nick="row.original.secondUser.nick"
-            :avatar="row.original.secondUser.avatar ?? undefined"
             :size="32"
             text-small
           />

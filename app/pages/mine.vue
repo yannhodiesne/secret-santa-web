@@ -103,21 +103,22 @@ const reveal = (event: MouseEvent) => {
         >
           Tu es le Secret Santa de ...
         </div>
-        <DiscordProfile
+        <FluxerProfile
           v-if="!data?.generated"
           class="mx-auto blur-md"
-          discord-id=""
+          fluxer-id=""
+          avatar=""
           username="Senior"
           nick="Le best"
         />
-        <DiscordProfile
+        <FluxerProfile
           v-else-if="data.recipient"
           class="mx-auto cursor-pointer transition-all ease-in-out duration-700"
           :class="{ 'blur-md': isBlurred }"
-          :discord-id="data.recipient?.id"
+          :fluxer-id="data.recipient?.id"
+          :avatar="data.recipient?.avatar"
           :username="data.recipient?.username"
           :nick="data.recipient.nick"
-          :avatar="data.recipient?.avatar ?? undefined"
           @click="reveal"
         />
 
@@ -129,17 +130,17 @@ const reveal = (event: MouseEvent) => {
         v-if="data?.list.length === 0"
         class="italic flex flex-col items-center"
       >
-        Personne, pour l'instant !
+        Personne pour l'instant !
       </div>
       <div class="w-full gap-4 grid grid-cols-1 md:flex md:flex-row md:flex-wrap">
-        <DiscordProfile
+        <FluxerProfile
           v-for="participant in data?.list"
           :key="participant.id"
           class="mx-auto md:mx-0"
-          :discord-id="participant.id"
+          :fluxer-id="participant.id"
+          :avatar="participant.avatar"
           :username="participant.username"
           :nick="participant.nick"
-          :avatar="participant.avatar ?? undefined"
           :size="64"
         />
       </div>

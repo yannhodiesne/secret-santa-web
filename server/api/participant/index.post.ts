@@ -4,11 +4,11 @@ export default defineEventHandler(async (event) => {
   const db = useDB(event);
 
   // Insert current user if missing
-  let dbUser = db.select({ id: tables.users.id }).from(tables.users).where(eq(tables.users.discordId, user.id)).get();
+  let dbUser = db.select({ id: tables.users.id }).from(tables.users).where(eq(tables.users.fluxerId, user.id)).get();
 
   if (!dbUser) {
     dbUser = db.insert(tables.users).values({
-      discordId: user.id,
+      fluxerId: user.id,
       username: user.username,
       nick: user.nick,
       avatar: user.avatar

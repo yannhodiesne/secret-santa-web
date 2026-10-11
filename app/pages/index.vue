@@ -12,12 +12,12 @@ const { loggedIn, user, clear } = useUserSession();
       <template #header>
         Mon profil
       </template>
-      <DiscordProfile
+      <FluxerProfile
         class="mx-auto"
-        :discord-id="user.id"
+        :fluxer-id="user.id"
+        :avatar="user.avatar"
         :username="user.username"
         :nick="user.nick"
-        :avatar="user.avatar"
       />
       <template #footer>
         <div class="grid grid-flow-col gap-4 justify-center">
@@ -44,7 +44,7 @@ const { loggedIn, user, clear } = useUserSession();
       </template>
       <NuxtImg
         preload
-        src="https://cdn.discordapp.com/embed/avatars/0.png?size=128"
+        src="/fluxer.svg"
         width="128"
         height="128"
         class="rounded-full mx-auto"
@@ -52,12 +52,12 @@ const { loggedIn, user, clear } = useUserSession();
       <template #footer>
         <div class="grid justify-center">
           <UButton
-            to="/api/auth/discord"
+            to="/api/auth/fluxer"
             icon="i-simple-line-icons-login"
             external
             class="dark:text-white bg-[#5865f2] dark:bg-[#5865f2] hover:bg-[#3949f0] hover:dark:bg-[#3949f0]"
           >
-            Se connecter avec Discord
+            Se connecter avec Fluxer
           </UButton>
         </div>
       </template>

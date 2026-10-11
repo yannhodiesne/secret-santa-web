@@ -1,28 +1,30 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  discordId: string;
+  fluxerId: string;
+  avatar?: string | null;
   username: string;
   nick: string | null;
-  avatar?: string;
   size?: number;
   textSmall?: boolean;
 }>();
 
+const { fluxerMediaUrl } = useRuntimeConfig().public;
+
 const normalizedSize = props.size ? 1 << 31 - Math.clz32(props.size * 2) : 128;
 
-const defaultUrl = `https://cdn.discordapp.com/embed/avatars/0.png?size=${normalizedSize * 2}`;
+const defaultUrl = '/fluxer.svg';
 
 const fetchError = ref<boolean>(false);
 
-const avatarUrl = computed(() => !fetchError.value && props.discordId && props.avatar
-  ? `https://cdn.discordapp.com/avatars/${props.discordId}/${props.avatar}.webp?size=${normalizedSize * 2}`
+const avatarUrl = computed(() => !fetchError.value && props.fluxerId && props.avatar
+  ? `${fluxerMediaUrl}/avatars/${props.fluxerId}/${props.avatar}.webp?size=${normalizedSize * 2}`
   : defaultUrl
 );
 </script>
 
 <template>
   <div
-    class="w-fit bg-[#5865f2] rounded-xl text-white flex items-center shadow-sm shadow-black py-4 px-8"
+    class="w-fit bg-[#4641D9] rounded-xl text-white flex items-center shadow-sm shadow-black py-4 px-8"
   >
     <NuxtImg
       preload

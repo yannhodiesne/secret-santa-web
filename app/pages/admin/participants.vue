@@ -42,11 +42,11 @@ const removeConfirm = (username: string, id: string) => useConfirm().confirm(
           :key="participant.id"
           class="flex flex-row"
         >
-          <DiscordProfile
-            :discord-id="participant.id"
+          <FluxerProfile
+            :fluxer-id="participant.id"
             :username="participant.username"
+            :avatar="participant.avatar"
             :nick="participant.nick"
-            :avatar="participant.avatar ?? undefined"
             :size="64"
             class="rounded-r-none"
           />
@@ -71,11 +71,10 @@ const removeConfirm = (username: string, id: string) => useConfirm().confirm(
           :key="participant.id"
           class="flex flex-row"
         >
-          <DiscordProfile
-            :discord-id="participant.id"
+          <FluxerProfile
+            :fluxer-id="participant.id"
             :username="participant.username"
             :nick="participant.nick"
-            :avatar="participant.avatar ?? undefined"
             :size="64"
           />
         </div>

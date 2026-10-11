@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
   if (participants.length > 0 && participants.every(p => !!p.recipientId))
     return;
 
-  const dbUser = db.select({ id: tables.users.id }).from(tables.users).where(eq(tables.users.discordId, id)).get();
+  const dbUser = db.select({ id: tables.users.id }).from(tables.users).where(eq(tables.users.fluxerId, id)).get();
 
   if (!dbUser)
     return;

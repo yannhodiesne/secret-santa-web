@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const year = new Date().getFullYear();
 
   const result = await db.select({
-    id: tables.users.discordId,
+    id: tables.users.fluxerId,
     username: tables.users.username,
     nick: tables.users.nick,
     avatar: tables.users.avatar

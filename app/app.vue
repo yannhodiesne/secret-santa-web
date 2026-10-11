@@ -33,6 +33,7 @@ useSeoMeta({
 
 const { loggedIn, user } = useUserSession();
 const { isMobile } = useDevice();
+const { fluxerMediaUrl } = useRuntimeConfig().public;
 
 const links = [
   [
@@ -40,7 +41,7 @@ const links = [
       ? [{
           label: user.value.username,
           avatar: {
-            src: `https://cdn.discordapp.com/avatars/${user.value.id}/${user.value.avatar}.webp?size=32`
+            src: `${fluxerMediaUrl}/avatars/${user.value.id}/${user.value.avatar}.webp?size=32`
           },
           to: '/'
         }]
@@ -48,7 +49,7 @@ const links = [
     ...(!loggedIn || !user.value
       ? [{
           label: 'Se connecter',
-          icon: 'i-simple-icons-discord',
+          icon: 'i-simple-line-icons-login',
           to: '/',
           badge: 1
         }]

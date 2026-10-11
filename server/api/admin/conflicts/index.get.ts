@@ -8,13 +8,13 @@ export default defineEventHandler(async (event) => {
 
   const result = await db.select({
     firstUser: {
-      id: firstUser.discordId,
+      id: firstUser.fluxerId,
       username: firstUser.username,
       nick: firstUser.nick,
       avatar: firstUser.avatar
     },
     secondUser: {
-      id: secondUser.discordId,
+      id: secondUser.fluxerId,
       username: secondUser.username,
       nick: secondUser.nick,
       avatar: secondUser.avatar
