@@ -35,9 +35,6 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   experimental: { inlineRouteRules: true },
   compatibilityDate: '2025-05-15',
-  nitro: {
-    preset: 'node_cluster'
-  },
   hooks: {
     'nitro:build:public-assets': (nitro) => {
       // copy migrations to .output/server/database/migrations
